@@ -78,6 +78,11 @@ h2 {
   padding: 20px 30px;
   font-size: 20px;
 }
+.btn.extra-large{
+  width: 100%;
+  padding: 20px 50px;
+  font-size: 20px;
+}
 .btn.large span{
   color: #FFFFFF;
 }
@@ -210,6 +215,30 @@ h2 {
     height: 32px;
 }
 
+.icon-volume {
+    background-image: url("../img/icon-volume.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-recomend {
+    background-image: url("../img/icon-recomend.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-tag {
+    background-image: url("../img/icon-tag.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-search {
+    background-image: url("../img/icon-search.png");
+    width: 32px;
+    height: 32px;
+}
+
 h1{
   font-size: 20px;
 }
@@ -256,4 +285,8 @@ li {
 .table-arrow td {
     padding: 20px;
     text-align: center;
+}
+
+.table-main td {
+  padding: 10px;
 }

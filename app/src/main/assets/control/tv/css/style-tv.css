@@ -86,3 +86,12 @@
   width: 60px;
   height: 48px;
 }
+
+.wrapper-control {
+  top: 80px;
+  background: #222222;
+  padding: 30px;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 80;
+}
