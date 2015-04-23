@@ -1,0 +1,28 @@
+.video-container {
+	float: left;
+	padding: 10px;
+}
+.video-container span{
+	display: block;
+	padding: 10px;
+	font-size: 14px;
+}
+.player-container {
+	display: block;
+	padding: 10px;
+}
+.player-container .image{
+	display: block;
+	margin: 0 auto;
+	width: 40%;
+}
+.player-container .control{
+	display: block;
+	padding: 20px;
+	font-size: 14px;
+}
+.player-container .info{
+	display: block;
+	padding: 20px;
+	font-size: 14px;
+}

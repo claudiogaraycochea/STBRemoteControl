@@ -71,7 +71,7 @@ h2 {
   font-size: 12px;
 }
 .btn.medium{
-  padding: 5px 10px;
+  padding: 10px 20px;
   font-size: 15px;
 }
 .btn.large{
@@ -175,6 +175,37 @@ h2 {
 
 .icon-arrow-right {
     background-image: url("../img/icon-arrow-right.png");
+    width: 32px;
+    height: 32px;
+}
+
+/* Video */
+.icon-rw {
+    background-image: url("../img/icon-rw.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-ffw {
+    background-image: url("../img/icon-ffw.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-play {
+    background-image: url("../img/icon-play.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-stop {
+    background-image: url("../img/icon-stop.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-pause {
+    background-image: url("../img/icon-pause.png");
     width: 32px;
     height: 32px;
 }
