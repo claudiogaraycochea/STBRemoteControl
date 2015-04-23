@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ESCANEAR DISPOSITIVO</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/sharesmartphone.js"></script>
+    <script>
+
+        function getURLParam(name){
+            if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+        }
+
+        $(document).ready(function() {
+            //$('.js-div').html("Time: "+getURLParam("time"));
+        });	
+     
+    </script>
+</head>
+<body>
+    <div class="wrapper-main">
+    <table class="table-arrow">
+        <tr>
+            <td></td>
+            <td><button class="btn large red"><i class="icon-arrow-up"></i></button>    </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button class="btn large red"><i class="icon-arrow-left"></i></button></td>
+            <td><button class="btn large green">Ok</button></td>
+            <td><button class="btn large red"><i class="icon-arrow-right"></i></button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="btn large red"><i class="icon-arrow-down"></i></button></td>
+            <td></td>
+        </tr>
+    </div>
+</body>
+</html>

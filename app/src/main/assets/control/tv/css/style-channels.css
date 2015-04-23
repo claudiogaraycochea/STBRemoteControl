@@ -1,0 +1,88 @@
+[class^="icon-channel"],
+[class*=" icon-"],
+[class^="button-"],
+[class*=" button-"] {
+  vertical-align: middle;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+
+.icon-channel-antena3 { 
+  background-image: url("../img/antena3.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-canal-plusliga {
+  background-image: url("../img/canal-plusliga.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-cnni {
+  background-image: url("../img/cnni.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-discoverychannel {
+  background-image: url("../img/discoverychannel.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-discoverymax {
+  background-image: url("../img/discoverymax.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-etb2 {
+  background-image: url("../img/etb2.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-gol2-internacional {
+  background-image: url("../img/gol2-internacional.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-historia {
+  background-image: url("../img/historia.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-LA-OTRA-44x36 {
+  background-image: url("../img/LA-OTRA-44x36.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-movistar-futbol {
+  background-image: url("../img/movistar-futbol.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-National-Geographic-44x36 {
+  background-image: url("../img/National-Geographic-44x36.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-neox {
+  background-image: url("../img/neox.jpg");
+  width: 60px;
+  height: 48px;
+}
+
+.icon-channel-russia_today {
+  background-image: url("../img/russia_today.jpg");
+  width: 60px;
+  height: 48px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CONTROL</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/sharesmartphone.js"></script>
+    <script>
+
+		
+    	
+   /*     
+        share.receive = function(func, param){
+            var param=share.getArrayParam(param);
+            share.functionReserved(func, param);
+        }
+*/
+		function showTest(data){
+			$('.js-div').html('Testeando ejecucion desde app :'+data);
+		}
+
+	    function showAndroidToast(toast) {
+			AndroidFunction.showToast(toast);
+		}
+
+	    function openAndroidDialog() {
+			AndroidFunction.openAndroidDialog();
+		}
+		
+        $(document).ready(function() {
+            
+           /* share.init('joinGroup');*/
+
+            $('.js-btn-play').click(function(){
+            	showTest();
+            });
+
+            $('.js-btn-stop').click(function(){
+				openAndroidDialog();
+            });
+
+
+
+
+/*
+            $('.js-btn-stop').click(function(){
+                var func="stop";
+                var param="";
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-url').click(function(){
+                var func="openURL";
+                var param="url="+encodeURI("http://tokelocal.com/sharesmartphone/demo/websiteB/");//Eg: "url" variable to open URL
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-url-c').click(function(){
+                var func="openURL";
+                var param="url="+encodeURI("http://10.50.15.113/sharesmartphone/demo/websiteC/");//Eg: "url" variable to open URL
+                share.sendGroup(func,param);
+            });*/
+
+            $('.js-btn-url').click(function(){
+                $('.js-div').html('probando');
+
+            });
+			
+            //document.getElementById("inpTest").value = "Johnny Bravo";
+        });	
+     
+    </script>
+</head>
+<body class="background-blue">
+	<h1>CONTROL A</h1>
+	<input type="text" id="inpTest" name="inpTest" value="k">
+	<button class="js-btn-play btn large blue">Play</button>
+    <button class="js-btn-stop btn large red">Stop</button>
+    <button class="js-btn-url btn large green">WEBSITE B</button>
+    <div class="js-div"></div>
+</body>
+</html>

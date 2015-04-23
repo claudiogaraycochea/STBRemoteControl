@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ESCANEAR DISPOSITIVO</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style-channels.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/sharesmartphone.js"></script>
+    <script>
+
+        function getURLParam(name){
+            if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+        }
+
+        $(document).ready(function() {
+            //$('.js-div').html("Time: "+getURLParam("time"));
+        });	
+     
+    </script>
+</head>
+<body>
+    <div class="">
+    	<div class="wrapper-header">
+            <div class="span-3-1 float-left"><input type="text" class="inp text large" placeholder="Buscar"></div><div class="span-3-2 float-right">Tag</div>
+        </div>
+        <div class="wrapper-body">
+            <ul>
+                <li><i class="icon-channel-canal-plusliga"></i> Canal Plus Liga</li>
+                <li><i class="icon-channel-gol2-internacional"></i> Gol 2 Internacional</li>
+                <li><i class="icon-channel-movistar-futbol"></i> Movistar Futbol</li>
+                <li><i class="icon-channel-antena3"></i> Antena 3</li>
+                <li><i class="icon-channel-cnni"></i> CNN Internacional</li>
+                <li><i class="icon-channel-russia_today"></i> Russia Today</li>
+                <li><i class="icon-channel-neox"></i> Neox</li>
+                <li><i class="icon-channel-etb2"></i> Etb2</li>
+                <li><i class="icon-channel-LA-OTRA-44x36"></i> La Otra 4</li>
+                <li><i class="icon-channel-National-Geographic-44x36"></i> National Geographic</li>
+                <li><i class="icon-channel-discoverychannel"></i> Discovery Channel</li>
+                <li><i class="icon-channel-discoverymax"></i> Discovery Max</li>
+                <li><i class="icon-channel-historia"></i> Historia</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

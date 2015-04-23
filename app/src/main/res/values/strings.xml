@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sharesmartphone</string>
+
+    <string name="title_section1">Sincronizar dispositivo</string>
+    <string name="title_section2">Joystick</string>
+    <string name="title_section3">Mi TV</string>
+    <string name="title_section4">Mi Video</string>
+    <string name="title_section5">Mi Música</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example"></string>
+
+    <string name="action_settings">Settings</string>
+</resources>
