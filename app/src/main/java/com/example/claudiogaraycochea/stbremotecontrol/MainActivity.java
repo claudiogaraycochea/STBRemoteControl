@@ -86,7 +86,7 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 5:
                 mTitle = getString(R.string.title_section5);
-                openURL("control/musica/index.html");
+                openURL("control/music/index.html");
                 break;
         }
     }

@@ -1,0 +1,29 @@
+[class^="icon-channel"],
+[class*=" icon-"],
+[class^="button-"],
+[class*=" button-"] {
+  vertical-align: middle;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+
+.icon-music { 
+  background-image: url("../img/icon-music.png");
+  width: 48px;
+  height: 48px;
+}
+
+.wrapper-control {
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+}
+
+.wrapper-search {
+  padding-top: 10px;
+}
+
+.wrapper-list {
+  margin-top: 140px;
+}

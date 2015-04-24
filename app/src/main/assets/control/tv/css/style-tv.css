@@ -88,13 +88,15 @@
 }
 
 .wrapper-control {
-  top: 80px;
-
+  top: 0px;
+  background: #222222;
   padding: 10px;
   margin: 0 auto;
   position: fixed;
-  z-index: 80;
+  z-index: 102;
+  height: 100%;
 }
+
 .wrapper-open-control {
   top: 80px;
   margin-right: 0;
@@ -102,6 +104,5 @@
   position: fixed;
   right: 5px;
   text-align: right;
-
   padding: 10px;
 }

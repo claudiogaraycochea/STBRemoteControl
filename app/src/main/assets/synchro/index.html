@@ -14,8 +14,14 @@
             return decodeURIComponent(name[1]);
         }
 
+        function showList(){
+            $(".wrapper-list").fadeIn( "slow", function() {
+            });
+        }
+
         $(document).ready(function() {
             //$('.js-div').html("Time: "+getURLParam("time"));
+            window.setTimeout(showList(), 4000 ); // 5 seconds
         });	
      
     </script>
@@ -27,6 +33,13 @@
                 Buscando dispositivo STB en tu red Wifi. Verifique que el dispositivo este encendido. 
             </p>
             <i class="icon-loading"></i>
+        </div>
+        <div class="wrapper-list" style="display:none;">
+            <ul>
+                <li><i class="icon-check"></i> Movistar STB <button class="btn medium blue float-right js-btn-movistar-stb">Conectar</button></li>
+                <li><i class="icon-check"></i> Ordenador <button class="btn medium blue float-right">Conectar</button></li>
+                <li class="disabled"><i class="icon-check-disabled"></i> Notebook <button class="btn medium gray float-right">Conectar</button></li>
+            </ul>
         </div>
     </div>
 </body>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ESCANEAR DISPOSITIVO</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style-music.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/sharesmartphone.js"></script>
+    <script>
+
+        function getURLParam(name){
+            if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+        }
+
+        $(document).ready(function() {
+
+        });	
+     
+    </script>
+</head>
+<body>
+    <div class="">
+
+    	<div class="wrapper-header">
+            <div class="wrapper-control">            
+                <button class="btn medium red"><i class="icon-play"></i></button>
+                <button class="btn medium red"><i class="icon-stop"></i></button>
+                <button class="btn medium red"><i class="icon-rw"></i></button>
+                <button class="btn medium red"><i class="icon-ffw"></i></button>
+            </div>
+            <div class="wrapper-search"><input type="text" class="inp text large" placeholder="Buscar"></div>
+        </div>
+        <div class="wrapper-list">
+            <ul>
+                <li><i class="icon-music"></i> Mis favoritos</li>
+                <li><i class="icon-music"></i> Recomendado por amigos</li>
+                <li><i class="icon-music"></i> Top 50 todos los generos</li>
+                <li><i class="icon-music"></i> Top 50 blues</li>
+                <li><i class="icon-music"></i> Top 50 classical</li>
+                <li><i class="icon-music"></i> Top 50 country</li>
+                <li><i class="icon-music"></i> Top 50 electronic</li>
+                <li><i class="icon-music"></i> Top 50 indie</li>
+                <li><i class="icon-music"></i> Top 50 jazz</li>
+                <li><i class="icon-music"></i> Top 50 metal</li>
+                <li><i class="icon-music"></i> Top 50 pop</li>
+                <li><i class="icon-music"></i> Top 50 hiphop</li>
+                <li><i class="icon-music"></i> Top 50 reggae</li>
+                <li><i class="icon-music"></i> Top 50 reggaeton</li>
+                <li><i class="icon-music"></i> Top 50 rock</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

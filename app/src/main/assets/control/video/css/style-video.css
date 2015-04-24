@@ -7,21 +7,26 @@
 	padding: 10px;
 	font-size: 14px;
 }
-.player-container {
+.wrapper-player {
+	top: 0;
 	display: block;
 	padding: 10px;
+	position: fixed;
+	z-index: 100;
+	background: #222222;
+	height: 100%;
 }
-.player-container .image{
+.wrapper-player .image{
 	display: block;
 	margin: 0 auto;
 	width: 40%;
 }
-.player-container .control{
+.wrapper-player .control{
 	display: block;
 	padding: 20px;
 	font-size: 14px;
 }
-.player-container .info{
+.wrapper-player .info{
 	display: block;
 	padding: 20px;
 	font-size: 14px;

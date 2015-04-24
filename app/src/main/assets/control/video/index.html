@@ -3,6 +3,7 @@
 <head>
     <title>ESCANEAR DISPOSITIVO</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/style-video.css">
@@ -16,16 +17,19 @@
         }
 
         $(document).ready(function() {
-
+            $(".js-open-player").animate({"left": "+=1500px"}, "slow");
             //$('.js-div').html("Time: "+getURLParam("time"));
+            $(".js-btn-open-player").click(function(){
+                $(".js-open-player").animate({"left": "-=1500px"}, "slow");
+            });
         });	
      
     </script>
 </head>
 <body>
     <div class="">
-        <div class="video-container">
-            <a href="player.html" class="js-video-link"><img src="img/video1.jpg"></a>
+        <div class="video-container js-btn-open-player">
+            <img src="img/video1.jpg">
             <span class="title">Volt</span>
         </div>
         <div class="video-container">
@@ -71,6 +75,21 @@
         <div class="video-container">
             <a href="player.html" class="js-video-link"><img src="img/video12.jpg"></a>
             <span class="title">Mira quien habla</span>
+        </div>
+    </div>
+
+    <div class="wrapper-player js-open-player">
+        <div>
+            <img class="image" src="img/video1.jpg">
+        </div>
+        <div class="info">
+            Para el super-perro Bolt (al que da voz John Travolta), todos los días están de aventuras, peligros e intriga – al menos hasta que las cámaras dejan de grabar, ya que es el protagonista de un famoso programa de televisión.
+        </div>
+        <div class="control">
+            <button class="btn medium red"><i class="icon-play"></i></button>
+            <button class="btn medium red"><i class="icon-stop"></i></button>
+            <button class="btn medium red"><i class="icon-rw"></i></button>
+            <button class="btn medium red"><i class="icon-ffw"></i></button>            
         </div>
     </div>
 </body>
