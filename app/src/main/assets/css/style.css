@@ -80,7 +80,7 @@ h2 {
 }
 .btn.extra-large{
   width: 100%;
-  padding: 20px 50px;
+  padding: 20px 40px;
   font-size: 20px;
 }
 .btn.large span{
@@ -239,6 +239,12 @@ h2 {
     height: 32px;
 }
 
+.icon-add {
+    background-image: url("../img/icon-add.png");
+    width: 32px;
+    height: 32px;
+}
+
 h1{
   font-size: 20px;
 }
@@ -276,17 +282,47 @@ li {
   margin-top: 60px;
 }
 .wrapper-main{
-    padding: 20px;
+    padding: 10px;
 }
 
 .table-arrow {
+    border-spacing: 0px;
     margin: 0 auto;
+    border: 0;
+    padding: 0;
 }
+
+.table-arrow tr{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .table-arrow td {
-    padding: 20px;
+    padding: 2px;
     text-align: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.table-main {
+    border-spacing: 0px;
+    margin: 0 auto;
+    border: 0;
+    padding: 0;
+}
+
+.table-main tr{
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .table-main td {
-  padding: 10px;
+  padding: 2px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }

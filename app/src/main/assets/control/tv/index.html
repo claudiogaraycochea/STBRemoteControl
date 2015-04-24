@@ -16,7 +16,17 @@
         }
 
         $(document).ready(function() {
+            $(".js-open-add").animate({"left": "+=1500px"}, "slow");
             //$('.js-div').html("Time: "+getURLParam("time"));
+            $(".js-close-add").click(function(){
+                $(".js-wrapper-control").animate({"left": "+=1500px"}, "slow");
+                $(".js-open-add").animate({"left": "-=1500px"}, "slow");
+            });
+            $(".js-open-control").click(function(){
+                $(".js-wrapper-control").animate({"left": "-=1500px"}, "slow");
+                $(".js-open-add").animate({"left": "+=1500px"}, "slow");
+            });
+
         });	
      
     </script>
@@ -26,7 +36,7 @@
     	<div class="wrapper-header">
             <div class="span-3-1 float-left"><input type="text" class="inp text large" placeholder="Buscar"></div>
         </div>
-        <div class="wrapper-control">
+        <div class="wrapper-control js-wrapper-control">
             <table>
                 <tr>
                     <td>
@@ -47,12 +57,15 @@
                             </tr>
                             <tr>
                                 <td><button class="btn large red"><i class="icon-recomend"></i></button></td>
-                                <td><button class="btn large red"><i class="icon-volume"></i></button></td>
+                                <td><button class="js-close-add btn large red"><i class="icon-add"></i></button></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>                       
+        </div>
+        <div class="wrapper-open-control js-open-add">
+            <button class="js-open-control btn large red"><i class="icon-add"></i></button>
         </div>
         <div class="wrapper-body">
             <ul>
