@@ -8,8 +8,20 @@
     <script type="text/javascript" src="../../../share/js/sharesmartphone.js"></script>
     <script>
 
+
+        share.getScannerList = function(data){
+            var data = JSON.parse(data);
+            for(i=0;i<data.length;i++){
+                var engineTitle=data[i].engineTitle;
+                var content='<li>'+engineTitle+' <button class="js-btn-connect" value="'+i+'">Conectar</button></li>';
+                $("ul.js-scannerList").append(content);
+                //$('.js-consoleLog').append(dataString+"<br>");
+
+                share.consoleLog('Dispositivo conectado >'+data[i].engineTitle);
+            }            
+        }
+
         $(document).ready(function() {
-            //$('.js-div').html("Time: "+getURLParam("time"));
             
             // Inicializar framework
 
@@ -29,6 +41,13 @@
             }
             share.send(data);
             */
+
+            $(document).on('click', '.js-btn-connect', function(){
+                var i = this.value;
+                var data = share.getLocalVarScannerListID(i);
+                share.connectEngine(data);
+            });
+
         });	
      
     </script>
@@ -36,5 +55,12 @@
 <body>
     <button class="btn medium red">Comenzar a escanear</button> 
     <div class="js-consoleLog"></div>
+
+    <p>
+        Dispositivos
+    </p>
+    <ul class="js-scannerList">
+    </ul>
+    <button class="js-btn-connect">Test</button>
 </body>
 </html>

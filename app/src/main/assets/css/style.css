@@ -325,9 +325,11 @@ li.disabled {
   padding: 10px;
   box-sizing: border-box;
 }
+
 .wrapper-body{
   margin-top: 60px;
 }
+
 .wrapper-main{
     padding: 10px;
 }
@@ -380,4 +382,16 @@ li.disabled {
 
 .divisor {
   padding: 2px;
+}
+
+.consoleLog{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #000000;
+  color: #8ce70b;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
 }

@@ -1,3 +1,4 @@
+var hostBase = "../../../../";
 var share = {
 
 	/* Inicializa el framework */
@@ -48,9 +49,8 @@ var share = {
     
     engineSTB: function(){
     	this.consoleLog('Generando conexión con STB');
-		var script = document.createElement('script');
-		script.src = '../sharesmartphone/engine/stb/js/stb.js?'+Math.random();
- 		document.documentElement.firstChild.appendChild(script);
+        this.openJS(hostBase+'sharesmartphone/synchro/scanner/js/scanner.js');
+        this.openJS(hostBase+'sharesmartphone/engine/stb/js/stb.js');
     },
 
     engineWS: function(){
@@ -65,6 +65,12 @@ var share = {
     consoleLog: function(dataString){
     	$('.js-consoleLog').append(dataString+"<br>");
     	console.log(dataString);
+    },
+
+    openJS: function(url){
+        var script = document.createElement('script');
+        script.src = url+'?'+Math.random();
+        document.documentElement.lastChild.appendChild(script);
     },
 
     /* Set cookies de un objeto */
@@ -88,6 +94,21 @@ var share = {
         return sessionStorage.getItem(name);
     },
 
+    /* Codifica cadena */
+    encodeString: function(string){
+        var encodedString = btoa(string);
+        return encodedString;
+    },
+
+    /* Decodifica cadena */
+    decodeString: function(string){
+        var decodedString = atob(encodedString);
+        return encodedString;
+    },
+
+    connectEngine: function(data){
+        alert(data.engineTitle+' - '+data.engine);
+    },
 
 }
 

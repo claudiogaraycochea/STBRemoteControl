@@ -3,6 +3,7 @@
 <head>
     <title>ESCANEAR DISPOSITIVO</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="../sharesmartphone/share/js/jquery-1.8.2.min.js"></script>
@@ -13,15 +14,14 @@
             //$('.js-div').html("Time: "+getURLParam("time"));
             
             // Inicializar framework
-
             var data = {
                 defineConnection:'joinGroup',
                 engineOrder: 'stb,webrtc,ws',
                 tag: 'control',
                 synchroMetod: 'scanner'
             }
-
             share.init(data);
+
 
             /* Ejecutar funcion
             var data= {
@@ -63,7 +63,7 @@
                 <li class="disabled"><i class="icon-check-disabled"></i> Notebook <button class="btn medium gray float-right">Conectar</button></li>
             </ul>
         </div>
-        <div class="js-consoleLog"></div>
+        <div class="js-consoleLog consoleLog"></div>
     </div>
 </body>
 </html>
