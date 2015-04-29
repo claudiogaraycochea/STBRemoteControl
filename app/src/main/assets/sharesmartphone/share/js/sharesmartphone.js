@@ -18,47 +18,39 @@ var share = {
 
     /* Unir al grupo */
     createGroup: function(data){
-   		this.consoleLog('Iniciando createGroup');
+   		this.consoleLog('Iniciando modo createGroup...');
    		this.setLocalVarObj(data);
    	},
 
     /* Unir al grupo */
     joinGroup: function(data){
-   		this.consoleLog('Iniciando joinGroup');
+   		this.consoleLog('Iniciando modo joinGroup...');
    		this.setLocalVarObj(data);
 
-    	var engineList=data.engineOrder.split(',');
-    	
-	    switch(engineList['0']) {
-	        case 'stb':{
-				this.engineSTB();
-	            break;            
-	        }
-	        case 'ws':{
-				this.engineWS();
-	            break;            
-	        }
-	        case 'webrtc':{
-				this.engineWEBRTC();
-	            break;            
-	        }
-	        default:
-	            this.consoleLog("El engineOrder no esta definido o no es soportado.");
-	    }
+        if (data.synchroMethod=='scanner'){
+            this.openJS(hostBase+'sharesmartphone/synchro/scanner/js/scanner.js');
+        }
+        else
+        if (data.synchroMethod=='qr'){
+            this.openJS(hostBase+'sharesmartphone/synchro/qr/js/qr.js');
+        }
+        else
+        if (data.synchroMethod=='qr'){
+            this.openJS(hostBase+'sharesmartphone/synchro/token/js/token.js');
+        }
+
     },
     
-    engineSTB: function(){
-    	this.consoleLog('Generando conexión con STB');
-        this.openJS(hostBase+'sharesmartphone/synchro/scanner/js/scanner.js');
+    getEngineSTB: function(data){
         this.openJS(hostBase+'sharesmartphone/engine/stb/js/stb.js');
     },
 
-    engineWS: function(){
-    	this.consoleLog('Generando conexión con WS');
+    getEngineWebsocket: function(data){
+    	this.consoleLog('Generando conexión con Websocket...');
     },
 
-    engineWEBRTC: function(){
-    	this.consoleLog('Generando conexión con WEBRTC');
+    getEngineWebrtc: function(data){
+    	this.consoleLog('Generando conexión con Webrtc...');
     },
 
     /* Mostrar consola */
@@ -75,14 +67,13 @@ var share = {
 
     /* Set cookies de un objeto */
 	setLocalVarObj: function(data){
-		this.consoleLog('Seteando cookies de inicio');
+		this.consoleLog('Seteando cookies de inicio de conexión...');
 		var dataList=[];
 		var dataListResult=[];
 		$.each(data, function(i,n) {
 			share.setLocalVar(i,n);
     	});
 	},
-
 
     /* Set cookie */
     setLocalVar: function(name,value){
@@ -107,6 +98,26 @@ var share = {
     },
 
     connectEngine: function(data){
+        
+        switch(data.engine) {
+            case 'stb':{
+                this.setLocalVar('engineSelected',JSON.stringify(data));
+                this.getEngineSTB();
+                break;            
+            }
+            case 'webrtc':{
+                this.setLocalVar('engineSelected',JSON.stringify(data));
+                share.getEngineWebrtc();
+                break;            
+            }
+            case 'websocket':{
+                this.setLocalVar('engineSelected',JSON.stringify(data));
+                share.getEngineWebsocket();
+                break;            
+            }
+            default:
+                console.log("Engine no declarado");
+        }
         alert(data.engineTitle+' - '+data.engine);
     },
 

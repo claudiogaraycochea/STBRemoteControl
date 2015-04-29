@@ -15,32 +15,27 @@
                 var engineTitle=data[i].engineTitle;
                 var content='<li>'+engineTitle+' <button class="js-btn-connect" value="'+i+'">Conectar</button></li>';
                 $("ul.js-scannerList").append(content);
-                //$('.js-consoleLog').append(dataString+"<br>");
-
                 share.consoleLog('Dispositivo conectado >'+data[i].engineTitle);
             }            
         }
 
         $(document).ready(function() {
             
-            // Inicializar framework
-
+            /* Definimos los datos de conexion */
             var data = {
-                defineConnection:'joinGroup',
-                engineOrder: 'stb,webrtc,ws',
-                tag: 'control',
-                synchroMetod: 'scanner'
+                defineConnection:'joinGroup', // definimos si nos uniremos o crearemos un grupo con createGroup o joinGroup
+                engineOrder: 'stb,webrtc,websocket', // es utilizado para createGroup el orden de las tecnologias a conectar
+                tag: 'control', // definimos el tag
+                synchroMethod: 'scanner' // metodo de sincronizacion 'scanner','qr' o 'token'
             }
 
+            /* Inicializa conexión */
             share.init(data);
 
-            /* Ejecutar funcion
-            var data= {
-                func: 'play',
-                param: 'x=1&y=2'
-            }
-            share.send(data);
-            */
+
+            $('.js-btn-send').click(function(){
+                share.send('ddd');
+            });
 
             $(document).on('click', '.js-btn-connect', function(){
                 var i = this.value;
@@ -53,14 +48,14 @@
     </script>
 </head>
 <body>
-    <button class="btn medium red">Comenzar a escanear</button> 
+    <h1>Método scanner</h1>
     <div class="js-consoleLog"></div>
-
     <p>
         Dispositivos
     </p>
     <ul class="js-scannerList">
     </ul>
-    <button class="js-btn-connect">Test</button>
+
+    <button class="js-btn-send">Send</button>
 </body>
 </html>

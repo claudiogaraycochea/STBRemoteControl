@@ -1,4 +1,5 @@
-share.consoleLog('Iniciando escanner');
+/* Indica el inicio de scanner*/
+share.consoleLog('Iniciando escanner...');
 
 share.start = function(){
 	share.getScannerList(share.getScannerLocalVar());
@@ -6,37 +7,39 @@ share.start = function(){
 
 /* Retorna JSON de dispositivos en cookie */
 share.getScannerLocalVar = function(){
-	share.consoleLog('Forzar conexion a STB fijo');
+	share.consoleLog('Forzando conexión Test a STB y ordenador');
 	
 	var data = '';
 	
-	var STBTest = { 
+	var STBTelefonicaTest = { 
 		engineTitle: 'Telefónica STB',
 		engine: 'stb',
-		STBIPLocal: '192.168.1.12'
+		STBIPLocal: '192.168.1.12',
+		model: 'comtrend-1.1.2'
 	};
 
-	var websocketTest = {
+	var STBOnvideoTest = { 
+		engineTitle: 'Onvideo STB',
+		engine: 'stb',
+		STBIPLocal: '192.168.1.13',
+		model: 'onvideo-1'
+	};
+
+	var ordenadorTest = {
 		engineTitle: 'Ordenador',
 		engine: 'websocket',
-		wsHost: '192.168.1.33',
-		wsgroupID: 'xEW20',
-		wsTo: '20'
+		wsHost: '192.168.1.33'
 	};
+
+	var scannerLocalVar='['+JSON.stringify(STBTelefonicaTest)+','+JSON.stringify(STBOnvideoTest)+','+JSON.stringify(ordenadorTest)+']';
 	
-	var scannerLocalVar='['+JSON.stringify(STBTest)+','+JSON.stringify(websocketTest)+']';
-	
+	/* todos los dispositivos encontrados se almacenan en la cookie */
 	share.setLocalVar('scannerList',scannerLocalVar);
 	
+	/* retorna los valores de la lista en la cookie*/
 	data=share.getLocalVar('scannerList');
 
 	return data;
-}
-
-share.scannerConnect = function(dataString){
-	
-	share.consoleLog('Conectando dispositivo seleccionado, por favor espere...');
-	share.consoleLog('Datos de conexión '+dataString);
 }
 
 share.getLocalVarScannerListID = function(selected){
