@@ -8,6 +8,23 @@
     <script type="text/javascript" src="../../../share/js/sharesmartphone.js"></script>
     <script>
 
+        share.receive = function(data){
+            alert('data receive'+data);
+            /*var param=share.getArrayParam(param);
+            switch(func) {
+                case 'play':{
+                    play(param["x"],param["y"]);
+                    break; 
+                }
+                case 'stop':{
+                    stop(param["x"],param["y"]);
+                    break;            
+                }
+                default: {
+                    share.functionReserved(func, param);
+                }
+            }*/
+        }
 
         share.getScannerList = function(data){
             var data = JSON.parse(data);
@@ -34,7 +51,11 @@
 
 
             $('.js-btn-send').click(function(){
-                share.send('ddd');
+                var data = {
+                    func: 'play',
+                    param: 'x=1&y=2'
+                }
+                share.send(data);
             });
 
             $(document).on('click', '.js-btn-connect', function(){

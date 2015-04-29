@@ -35,7 +35,44 @@
 			}
 			$this->response('',204);	// If no records "No Content" status
 		}
+
+		//INPUT
+		private function input(){
+			if($this->get_request_method() != "POST"){
+				$this->response('',406);
+			}
+			$token = $this->_request['token'];
+			$data = $this->_request['data'];
+           
+            if($token!=''){
+				$data_result['data']=$data;
+				$file = 'input.txt'; // file to listen smartphone
+				file_put_contents($file, $data);
+
+                // If success everythig is good send header as "OK" and return list of users in JSON format
+				$this->response($this->json($data_result), 200);
+			}
+			$this->response('',204);	// If no records "No Content" status
+		}
         
+		//OUTPUT
+		private function output(){
+			if($this->get_request_method() != "POST"){
+				$this->response('',406);
+			}
+			$token = $this->_request['token'];
+          
+            if($token!=''){
+            	$file = 'output.txt'; // file to listen STB from smartphone
+				$current = file_get_contents($file);
+				$data_result['data'] = $current;
+
+                // If success everythig is good send header as "OK" and return list of users in JSON format
+				$this->response($this->json($data_result), 200);
+			}
+			$this->response('',204);	// If no records "No Content" status
+		}
+
 		/*
 		 *	Encode array into JSON
 		*/
