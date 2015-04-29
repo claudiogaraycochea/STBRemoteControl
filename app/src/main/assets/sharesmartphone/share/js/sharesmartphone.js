@@ -35,7 +35,7 @@ var share = {
             this.openJS(hostBase+'sharesmartphone/synchro/qr/js/qr.js');
         }
         else
-        if (data.synchroMethod=='qr'){
+        if (data.synchroMethod=='token'){
             this.openJS(hostBase+'sharesmartphone/synchro/token/js/token.js');
         }
 
@@ -116,9 +116,8 @@ var share = {
                 break;            
             }
             default:
-                console.log("Engine no declarado");
+                share.consoleLog("Engine no declarado");
         }
-        alert(data.engineTitle+' - '+data.engine);
     },
 
 }

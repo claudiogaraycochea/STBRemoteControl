@@ -12,7 +12,7 @@ share.initSTB = function(){
             break;            
         }
         default:
-            console.log("STB Model no reconocido");
+            share.consoleLog("STB Model no reconocido");
     }
 }
 
