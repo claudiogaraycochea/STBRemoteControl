@@ -30,9 +30,11 @@ share.getAPIResponse = function(engineData){
       data: postData
     })
     .success(function(data) {
-      var data=share.decodeString(data.data);
-      if(APICommand=='output'){
-        share.receive(JSON.parse(data));
+      if(data!=null){
+        var data=share.decodeString(data.data);
+        if(APICommand=='output'){
+          share.receive(JSON.parse(data));
+        }
       }
     })
     .fail(function(data) {

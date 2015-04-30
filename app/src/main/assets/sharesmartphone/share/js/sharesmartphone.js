@@ -125,5 +125,15 @@ var share = {
         }
     },
 
+    reserved: function(func,param){
+        switch(func) {
+            case 'openLayer':{
+                alert('Abre layer'+param);
+                break;            
+            }
+            default:
+                share.consoleLog("Funcion no declarada");
+        }
+    }
 }
 
