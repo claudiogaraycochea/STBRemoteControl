@@ -8,16 +8,14 @@ share.initSTB = function (){
 	share.consoleLog('Conectando Comtrend-1.1.2');	
 
 	/* Inicializa API */
-  share.listenerSTB();
+  setInterval(this.listenerSTB, 3000);
 },
 
 share.listenerSTB = function(){
   var engineData = {
     APICommand: 'output'
   };
-  var data = share.getAPIResponse(engineData);
-  alert('vvvvvvvvvvvvvvvvvvvvvvvv        '+data);
-//  share.receive(JSON.stringify(data));
+  share.getAPIResponse(engineData);
 },
 
 share.getAPIResponse = function(engineData){
@@ -32,8 +30,10 @@ share.getAPIResponse = function(engineData){
       data: postData
     })
     .success(function(data) {
-      alert(' data getAPIResponse: '+data.data);
-      return data.data;
+      var data=share.decodeString(data.data);
+      if(APICommand=='output'){
+        share.receive(JSON.parse(data));
+      }
     })
     .fail(function(data) {
       return "error";
@@ -41,14 +41,13 @@ share.getAPIResponse = function(engineData){
 },
 
 share.send = function(data){
-	share.consoleLog('Share.send func:'+data.func+' / param:'+data.param+' - para STB Comtrend-1.1.2');
+	share.consoleLog('shareSend > func:'+data.func+' / param:'+data.param+' - para STB Comtrend-1.1.2');
   var engineData = {
     func: data.func,
     param: data.param,
     APICommand: 'input'
   };
-  var data = share.getAPIResponse(engineData);
-  //alert('Result Api:'+data);
+  share.getAPIResponse(engineData);
 }
 
 share.initSTB();

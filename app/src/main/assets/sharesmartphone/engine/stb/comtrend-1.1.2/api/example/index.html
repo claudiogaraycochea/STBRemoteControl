@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SMART TV</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/example.js"></script>
+    <script>
+
+        function play(param){
+            alert('PLAY '+param);
+        }
+
+        function stop(param){
+            alert('STOP '+param);
+        }
+
+        smartTV.receive = function(data){
+            switch(data.func) {
+                case 'play':{
+                    play(data.param);
+                    break;
+                }
+                case 'stop':{
+                    stop(data.param);
+                    break;
+                }
+                default:
+                    console.log("Función no declarada");
+            }
+        }
+
+        $(document).ready(function() {
+            smartTV.init();
+
+            $('.js-btn-open-joystick').click(function(){
+                var data = {
+                    func: 'openLayer',
+                    param: 'layer=joystick'
+                };
+                smartTV.send(data);
+            });
+
+            $('.js-btn-open-numeral').click(function(){
+                var data = {
+                    func: 'openLayer',
+                    param: 'layer=numeral'
+                };
+                smartTV.send(data);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>SMART TV - EXAMPLE</h1>
+
+    <button class="js-btn-open-joystick">Abrir Joystick en Smartphone</button>
+    <button class="js-btn-open-numeral">Abrir Control Numeral en Smartphone</button>
+</body>
+</html>

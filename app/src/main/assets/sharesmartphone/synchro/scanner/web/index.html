@@ -9,9 +9,9 @@
     <script>
 
         share.receive = function(data){
-            alert('data receive'+data);
-            /*var param=share.getArrayParam(param);
-            switch(func) {
+            //var param=share.getArrayParam(param);
+            share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);
+            switch(data.func) {
                 case 'play':{
                     play(param["x"],param["y"]);
                     break; 
@@ -23,7 +23,7 @@
                 default: {
                     share.functionReserved(func, param);
                 }
-            }*/
+            }
         }
 
         share.getScannerList = function(data){
@@ -50,9 +50,17 @@
             share.init(data);
 
 
-            $('.js-btn-send').click(function(){
+            $('.js-btn-play').click(function(){
                 var data = {
                     func: 'play',
+                    param: 'x=1&y=2'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-stop').click(function(){
+                var data = {
+                    func: 'stop',
                     param: 'x=1&y=2'
                 }
                 share.send(data);
@@ -77,6 +85,8 @@
     <ul class="js-scannerList">
     </ul>
 
-    <button class="js-btn-send">Send</button>
+    Botones de ejemplo:
+    <button class="js-btn-play">play</button>
+    <button class="js-btn-stop">stop</button>
 </body>
 </html>

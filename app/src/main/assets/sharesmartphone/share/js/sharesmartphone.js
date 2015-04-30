@@ -27,16 +27,21 @@ var share = {
    		this.consoleLog('Iniciando modo joinGroup...');
    		this.setLocalVarObj(data);
 
-        if (data.synchroMethod=='scanner'){
-            this.openJS(hostBase+'sharesmartphone/synchro/scanner/js/scanner.js');
-        }
-        else
-        if (data.synchroMethod=='qr'){
-            this.openJS(hostBase+'sharesmartphone/synchro/qr/js/qr.js');
-        }
-        else
-        if (data.synchroMethod=='token'){
-            this.openJS(hostBase+'sharesmartphone/synchro/token/js/token.js');
+        switch(data.synchroMethod) {
+            case 'scanner':{
+                this.openJS(hostBase+'sharesmartphone/synchro/scanner/js/scanner.js');
+                break;
+            }
+            case 'qr':{
+                this.openJS(hostBase+'sharesmartphone/synchro/qr/js/qr.js');
+                break;
+            }
+            case 'token':{
+                this.openJS(hostBase+'sharesmartphone/synchro/token/js/token.js');
+                break;
+            }
+            default:
+                share.consoleLog("synchroMethod no declarado");
         }
 
     },
@@ -92,9 +97,9 @@ var share = {
     },
 
     /* Decodifica cadena */
-    decodeString: function(string){
+    decodeString: function(encodedString){
         var decodedString = atob(encodedString);
-        return encodedString;
+        return decodedString;
     },
 
     connectEngine: function(data){
