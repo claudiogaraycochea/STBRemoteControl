@@ -1,3 +1,4 @@
+//var hostBase = "../../../../"; // PARA TEST
 var hostBase = "../";
 var share = {
 
