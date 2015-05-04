@@ -4,6 +4,8 @@
     <title>ESCANEAR DISPOSITIVO</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="../../../share/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../../../share/js/sharesmartphone.js"></script>
     <script>
@@ -30,7 +32,7 @@
             var data = JSON.parse(data);
             for(i=0;i<data.length;i++){
                 var engineTitle=data[i].engineTitle;
-                var content='<li>'+engineTitle+' <button class="js-btn-connect" value="'+i+'">Conectar</button></li>';
+                var content='<li>'+engineTitle+' <button class="js-btn-connect btn medium red" value="'+i+'">Conectar</button></li>';
                 $("ul.js-scannerList").append(content);
                 share.consoleLog('Dispositivo conectado >'+data[i].engineTitle);
             }            
@@ -77,16 +79,12 @@
     </script>
 </head>
 <body>
-    <h1>Método scanner</h1>
-    <div class="js-consoleLog"></div>
-    <p>
-        Dispositivos
-    </p>
+    <h1>SHARESMARTPHONE - METODO DE ESCANER</h1>
+    <p>Dispositivos conectados</p>
     <ul class="js-scannerList">
     </ul>
-
-    Botones de ejemplo:
-    <button class="js-btn-play">play</button>
-    <button class="js-btn-stop">stop</button>
+    <button class="js-btn-play btn medium red">play</button>
+    <button class="js-btn-stop btn medium red">stop</button>
+    <div class="js-consoleLog consoleLog"></div>
 </body>
 </html>

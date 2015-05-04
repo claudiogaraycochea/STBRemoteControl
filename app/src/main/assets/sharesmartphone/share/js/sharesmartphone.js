@@ -60,7 +60,7 @@ var share = {
 
     /* Mostrar consola */
     consoleLog: function(dataString){
-    	$('.js-consoleLog').append(dataString+"<br>");
+    	$('.js-consoleLog').prepend(dataString+"<br>");
     	console.log(dataString);
     },
 
