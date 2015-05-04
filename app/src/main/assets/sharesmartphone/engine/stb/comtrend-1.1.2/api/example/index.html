@@ -10,22 +10,23 @@
     <script type="text/javascript" src="js/example.js"></script>
     <script>
 
-        function play(param){
-            alert('PLAY '+param);
+        function play(x,y){
+            alert('Play x:'+x+' y:'+y);
         }
 
-        function stop(param){
-            alert('STOP '+param);
+        function stop(x,y){
+            alert('Stop x:'+x+' y:'+y);
         }
 
         smartTV.receive = function(data){
+            var p = smartTV.paramToArray(data.param);
             switch(data.func) {
                 case 'play':{
-                    play(data.param);
+                    play(p.x,p.y);
                     break;
                 }
                 case 'stop':{
-                    stop(data.param);
+                    stop(p.x,p.y);
                     break;
                 }
                 default:

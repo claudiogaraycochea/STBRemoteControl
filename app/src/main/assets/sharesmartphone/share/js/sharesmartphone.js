@@ -1,4 +1,4 @@
-var hostBase = "../../../../";
+var hostBase = "../";
 var share = {
 
 	/* Inicializa el framework */

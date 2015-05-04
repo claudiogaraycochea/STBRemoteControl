@@ -63,6 +63,18 @@ var smartTV = {
 		};
 
 		this.setOutput(engineData);
-    }
+    },
+
+    paramToArray : function(param){
+        var p= new Array();
+        if(param!=undefined){
+            var ps=param.split("&");
+            $.each(ps, function( key, value ) {
+                var pm=value.split("=");
+                p[pm[0]]=pm[1];
+            });
+            return p;
+        }
+    },
 
 }

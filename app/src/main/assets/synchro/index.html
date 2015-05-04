@@ -10,57 +10,82 @@
     <script type="text/javascript" src="../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
+        share.receive = function(data){
+            //var param=share.getArrayParam(param);
+            share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);
+            switch(data.func) {
+                case 'play':{
+                    play(param["x"],param["y"]);
+                    break; 
+                }
+                case 'stop':{
+                    stop(param["x"],param["y"]);
+                    break;            
+                }
+                default: {
+                    share.reserved(data.func, data.param);
+                }
+            }
+        }
+
+        share.getScannerList = function(data){
+            var data = JSON.parse(data);
+            for(i=0;i<data.length;i++){
+                var engineTitle=data[i].engineTitle;
+                var content='<li>'+engineTitle+' <button class="js-btn-connect btn medium red" value="'+i+'">Conectar</button></li>';
+                $("ul.js-scannerList").append(content);
+                share.consoleLog('Dispositivo conectado >'+data[i].engineTitle);
+            }            
+        }
+
         $(document).ready(function() {
-            //$('.js-div').html("Time: "+getURLParam("time"));
-            
-            // Inicializar framework
             var data = {
-                defineConnection:'joinGroup',
-                engineOrder: 'stb,webrtc,ws',
-                tag: 'control',
-                synchroMetod: 'scanner'
+                defineConnection:'joinGroup', 
+                engineOrder: 'stb,webrtc,websocket',
+                tag: 'control', 
+                synchroMethod: 'scanner' 
             }
             share.init(data);
 
+            $('.js-btn-play').click(function(){
+                var data = {
+                    func: 'play',
+                    param: 'x=1&y=2'
+                }
+                share.send(data);
+            });
 
-            /* Ejecutar funcion
-            var data= {
-                func: 'play',
-                param: 'x=1&y=2'
-            }
-            share.send(data);
-            */
+            $('.js-btn-stop').click(function(){
+                var data = {
+                    func: 'stop',
+                    param: 'x=1&y=2'
+                }
+                share.send(data);
+            });
+
+            $(document).on('click', '.js-btn-connect', function(){
+                var i = this.value;
+                var data = share.getLocalVarScannerListID(i);
+                share.connectEngine(data);
+            });
+
         }); 
      
     </script>
 
-    <script>
-
-        function showList(){
-            $(".wrapper-list").fadeIn( "slow", function() {
-            });
-        }
-
-        $(document).ready(function() {
-            //$('.js-div').html("Time: "+getURLParam("time"));
-            window.setTimeout(showList(), 4000 ); // 5 seconds
-        });	
-     
-    </script>
 </head>
 <body>
     <div class="">
+        <button class="js-btn-play btn medium red">play</button>
+        <button class="js-btn-stop btn medium red">stop</button>
         <div class="js-div">
             <p>
                 Buscando dispositivo STB en tu red Wifi. Verifique que el dispositivo este encendido. 
             </p>
             <i class="icon-loading"></i>
         </div>
-        <div class="wrapper-list" style="display:none;">
-            <ul>
-                <li><i class="icon-check"></i> Movistar STB <button class="btn medium blue float-right js-btn-movistar-stb">Conectar</button></li>
-                <li><i class="icon-check"></i> Ordenador <button class="btn medium blue float-right">Conectar</button></li>
-                <li class="disabled"><i class="icon-check-disabled"></i> Notebook <button class="btn medium gray float-right">Conectar</button></li>
+        <div class="wrapper-list">
+            <ul class="js-scannerList">
             </ul>
         </div>
         <div class="js-consoleLog consoleLog"></div>
