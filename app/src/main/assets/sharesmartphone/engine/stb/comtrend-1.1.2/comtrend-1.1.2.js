@@ -2,13 +2,14 @@
 	API soportada por dispositivo Comtrend modelo 1.1.2
 */
 
-var hostSTB = '10.160.10.200';
+//var hostSTB = '10.160.10.200';
+var hostSTB = 'tokelocal.com';
 
 share.initSTB = function (){
 	share.consoleLog('Conectando Comtrend-1.1.2');	
 
 	/* Inicializa API */
-  setInterval(this.listenerSTB, 3000);
+  setInterval(this.listenerSTB, 5000);
 },
 
 share.listenerSTB = function(){
@@ -22,10 +23,10 @@ share.getAPIResponse = function(engineData){
   var APICommand=engineData.APICommand;
   var engineData=JSON.stringify(engineData);
   var postData='data='+share.encodeString(engineData)+'&token=xxxxx';
-
+//url: 'http://'+hostSTB+'/comtrend-1.1.2/api/1.1.2/'+APICommand+'/',
   $.ajax({
-      url: 'http://'+hostSTB+'/comtrend-1.1.2/api/1.1.2/'+APICommand+'/',
-      type: 'POST',
+      url: 'http://'+hostSTB+'/api/'+APICommand,
+      type: 'GET',
       dataType: "json",
       data: postData
     })

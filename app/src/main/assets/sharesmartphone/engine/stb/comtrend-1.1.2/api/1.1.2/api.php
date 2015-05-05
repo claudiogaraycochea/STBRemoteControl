@@ -1,6 +1,9 @@
 <?php
 	error_reporting(E_ERROR | E_WARNING | E_PARSE);
 	require_once("rest.php");
+
+	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Methods: GET, POST'); 
 	
 	class API extends REST {
 	
@@ -22,7 +25,7 @@
 	    //GET BROADCAST
 		private function broadcast(){	
 			// Cross validation if the request method is GET else it will return "Not Acceptable" status
-			if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
 			$token = $this->_request['token'];
@@ -38,7 +41,7 @@
 
 		//INPUT
 		private function input(){
-			if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
 			$token = $this->_request['token'];
@@ -49,6 +52,7 @@
 				$file = 'input.txt'; // file to listen smartphone
 				file_put_contents($file, $data);
 
+				$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -57,7 +61,7 @@
 
 		// readinput
 		private function readinput(){
-			if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
 			
@@ -70,7 +74,7 @@
 					$data_result['data'] = $current;
 					file_put_contents($file, '');
 				}
-
+				$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -79,7 +83,7 @@
 
 		// set output
 		private function setoutput(){
-			if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
 			$token = $this->_request['token'];
@@ -90,6 +94,7 @@
 				$file = 'output.txt'; // file to listen smartphone
 				file_put_contents($file, $data);
 
+				$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -98,7 +103,7 @@
         
 		//OUTPUT
 		private function output(){
-			if($this->get_request_method() != "POST"){
+			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
 			$token = $this->_request['token'];
@@ -113,9 +118,28 @@
 					file_put_contents($file, '');
 				}
 
+				$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
+			$this->response('',204);	// If no records "No Content" status
+		}
+
+
+		//OUTPUT
+		private function test(){
+			if($this->get_request_method() != "GET"){
+				$this->response('',406);
+			}
+			$token = 'eeeeeeeeeeeeeeeeeee';
+
+            if($token!=''){
+				$data_result['data'] = 'ffffffffffffffffffffffffffff';
+				$data_result['status'] = 'true';
+                // If success everythig is good send header as "OK" and return list of users in JSON format
+				$this->response($this->json($data_result), 200);
+			}
+
 			$this->response('',204);	// If no records "No Content" status
 		}
 	

@@ -1,17 +1,20 @@
-var hostSTB = '10.160.10.200';
+//var hostSTB = '10.160.10.200';
+
+var hostSTB = 'tokelocal.com'
 
 var smartTV = {
 
 	/* Inicializa el framework */
     init: function(){
     	console.log('Iniciando smartTV');
-    	setInterval(this.listen, 500);
+    	setInterval(this.listen, 5000);
     },
 	listen: function(){
 		var postData='token=xxxxx';
+		//url: 'http://'+hostSTB+'/comtrend-1.1.2/api/1.1.2/readinput/',
 	  	$.ajax({
-	    	url: 'http://'+hostSTB+'/comtrend-1.1.2/api/1.1.2/readinput/',
-	    	type: 'POST',
+	    	url: 'http://'+hostSTB+'/api/readinput',
+	    	type: 'GET',
 	    	dataType: "json",
 	    	data: postData
 	    })
@@ -31,8 +34,8 @@ var smartTV = {
 		var engineData=JSON.stringify(engineData);
 		var postData='data='+this.encodeString(engineData)+'&token=xxxxx';
 	  	$.ajax({
-	    	url: 'http://'+hostSTB+'/comtrend-1.1.2/api/1.1.2/setoutput/',
-	    	type: 'POST',
+	    	url: 'http://'+hostSTB+'/api/setoutput',
+	    	type: 'GET',
 	    	dataType: "json",
 	    	data: postData
 	    })
