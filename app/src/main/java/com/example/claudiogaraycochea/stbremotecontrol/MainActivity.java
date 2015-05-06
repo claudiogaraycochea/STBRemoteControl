@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
+import android.webkit.WebViewClient;
 
 
 public class MainActivity extends ActionBarActivity
@@ -53,6 +54,7 @@ public class MainActivity extends ActionBarActivity
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        mWebView.setWebViewClient(new WebViewClient());
 
         mWebView.loadUrl("file:///android_asset/synchro/index.html");
     }

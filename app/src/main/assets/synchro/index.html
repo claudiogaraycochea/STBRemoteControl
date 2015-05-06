@@ -13,7 +13,7 @@
 
         function openControlJoystick(){
     //        $(location).attr('href', 'file:///android_asset/control/joystick/index.html');
-            $(location).attr('href', '/res/main/assets/control/joystick/index.html');
+            $(location).attr('href', 'control/joystick/index.html');
         }
 
         function openComponent(param){
@@ -87,13 +87,18 @@
             $('.js-btn-load').click(function(){
                 $(location).attr('href', 'file:///android_asset/control/joystick/index.html');
             });
-
+            $('.js-path').html(document.URL+' <br> '+location.href+' <br> '+location.origin);
         }); 
      
     </script>
 
 </head>
 <body>
+    <a href='control.html'>control1</a>
+    <a href='file:///android_asset/www/synchro/control.html'>control2</a>
+    <a href='file///android_asset/synchro/control.html'>control3</a>
+    <a href='control.html'>control4</a>
+    <div class="js-path"></div>
     <button class="js-btn-load">Abrir</button>
     <div class="">
         <div class="js-connections">
