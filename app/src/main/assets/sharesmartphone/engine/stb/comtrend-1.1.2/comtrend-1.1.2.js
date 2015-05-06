@@ -9,8 +9,12 @@ share.initSTB = function (){
 	share.consoleLog('Conectando Comtrend-1.1.2');	
 
 	/* Inicializa API */
-  setInterval(this.listenerSTB, 5000);
-  share.afterConnect();
+  setInterval(this.listenerSTB, 2500);
+
+  var data = {
+      func: 'ready'
+  };
+  share.send(data);
 },
 
 share.listenerSTB = function(){

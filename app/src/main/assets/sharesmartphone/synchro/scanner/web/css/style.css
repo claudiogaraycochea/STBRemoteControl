@@ -105,3 +105,27 @@ body {
   height: 200px;
   overflow: auto;
 }
+
+.notification {
+  padding: 20px;
+}
+.notification.success{
+  background-color: #dbf2d8;
+  color: #4c6f4f;
+  border: 1px solid #d7e2d4;
+}
+.notification.error{
+  background-color: #f3dddf;
+  color: #7b4d58;
+  border: 1px solid #e1d1d1;
+}
+.notification.alert{
+  background-color: #fdf8e2;
+  color: #7b735e;
+  border: 1px solid #efefd5;
+}
+.notification.info{
+  background-color: #d4eff6;
+  color: #4e6a76;
+  border: 1px solid #c7e4ea;
+}

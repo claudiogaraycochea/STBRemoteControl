@@ -1,21 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>SMART TV</title>
+    <title>MAIN MENU</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/example.js"></script>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/example.js"></script>
     <script>
 
-        function play(x,y){
-            alert('Play x:'+x+' y:'+y);
-        }
-
-        function stop(x,y){
-            alert('Stop x:'+x+' y:'+y);
+        function move(data){
+            //alert('Move:'+data);
+            console.log('move:'+data);
         }
 
         function openMainMenu(){
@@ -40,7 +37,8 @@
         smartTV.ready = function(data){
             console.log('Dispositivo sincronizado');
             var data = {
-                func: 'ready'
+                func: 'openComponent',
+                param: 'componentName=ControlJoystick'
             };
             smartTV.send(data);
         }
@@ -57,12 +55,20 @@
                     openComponent(data.param);
                     break;
                 }
-                case 'play':{
-                    play(p.x,p.y);
+                case 'up':{
+                    move('up');
                     break;
                 }
-                case 'stop':{
-                    stop(p.x,p.y);
+                case 'down':{
+                    move('down');
+                    break;
+                }
+                case 'left':{
+                    move('left');
+                    break;
+                }
+                case 'right':{
+                    move('right');
                     break;
                 }
                 default:
@@ -73,27 +79,18 @@
         $(document).ready(function() {
             smartTV.init();
 
-            $('.js-btn-open-joystick').click(function(){
+            $('.js-btn-play').click(function(){
                 var data = {
-                    func: 'openLayer',
-                    param: 'layer=joystick'
-                };
-                smartTV.send(data);
-            });
-
-            $('.js-btn-open-response').click(function(){
-                var data = {
-                    func: 'response',
-                    param: 'x=3&y=4'
-                };
+                    func: 'play',
+                    param: 'x=1&y=2'
+                }
                 smartTV.send(data);
             });
         });
     </script>
 </head>
 <body>
-    <h1>SHARESMARTPHONE - STB API EXAMPLE</h1>
-    <button class="js-btn-open-joystick btn medium red">Abrir Joystick en Smartphone</button>
-    <button class="js-btn-open-response btn medium red">Abrir Control Numeral en Smartphone</button>
+    <h1>MAIN MENU</h1>
+    <button class="js-btn-play btn medium red">play</button>
 </body>
 </html>

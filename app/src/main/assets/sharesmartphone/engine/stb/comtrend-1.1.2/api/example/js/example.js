@@ -7,7 +7,8 @@ var smartTV = {
 	/* Inicializa el framework */
     init: function(){
     	console.log('Iniciando smartTV');
-    	setInterval(this.listen, 5000);
+    	setInterval(this.listen, 2500);
+    	smartTV.ready();
     },
 	listen: function(){
 		var postData='token=xxxxx';

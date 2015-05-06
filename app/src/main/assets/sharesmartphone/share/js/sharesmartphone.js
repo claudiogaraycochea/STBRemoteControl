@@ -1,20 +1,25 @@
 //var hostBase = "../../../../"; // PARA TEST
-var hostBase = "../";
+//var hostBase = "../";
 var share = {
 
 	/* Inicializa el framework */
     init: function(data){
-
-    	if (data.defineConnection=='joinGroup'){
-    		this.joinGroup(data);
-    	}
-    	else
+        if(this.getLocalVar('engineSelected')!=null){
+            var data = JSON.parse(this.getLocalVar('engineSelected'));
+            share.connectEngine(data);
+        }
+        else{
+        	if (data.defineConnection=='joinGroup'){
+        		this.joinGroup(data);
+        	}
+        	else
 	    	if (data.defineConnection=='createGroup'){
 	    		this.createGroup(data);
 	    	}
 	    	else {
 		    	this.consoleLog('Variable defineConnection no definida.');
 	    	}
+        }    
     },
 
     /* Unir al grupo */
@@ -133,8 +138,20 @@ var share = {
                 break;            
             }
             default:
-                share.consoleLog("Funcion no declarada");
+                share.consoleLog("Función \""+func+"\" no declarada en este componente");
         }
-    }
+    },
+
+    paramToArray : function(param){
+        var p= new Array();
+        if(param!=undefined){
+            var ps=param.split("&");
+            $.each(ps, function( key, value ) {
+                var pm=value.split("=");
+                p[pm[0]]=pm[1];
+            });
+            return p;
+        }
+    },
 }
 

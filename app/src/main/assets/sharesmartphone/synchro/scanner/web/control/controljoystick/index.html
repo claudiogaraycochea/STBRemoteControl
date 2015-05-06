@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>JOYSTICK</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../../../../share/js/jquery-1.8.2.min.js"></script>
+    <script>var hostBase = "../../../../../../"; // PARA TEST</script>
+    <script type="text/javascript" src="../../../../../share/js/sharesmartphone.js"></script>
+    <script>
+        function play(x,y){
+            alert('PLAY');
+        }
+
+        /* Recepción de comandos */
+        share.receive = function(data){
+            var p=share.paramToArray(data.param);
+            share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);
+            switch(data.func) {
+                case 'play':{
+                    play(p.x,p.y);
+                    break; 
+                }
+                default: {
+                    share.reserved(data.func, data.param);
+                }
+            }
+        }
+        function getURLParam(name){
+            if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+        }
+
+        $(document).ready(function() {
+            /* Inicializa conexión */
+            share.init();
+
+            $('.js-btn-up').click(function(){
+                var data = {
+                    func: 'up'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-down').click(function(){
+                var data = {
+                    func: 'down'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-left').click(function(){
+                var data = {
+                    func: 'left'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-right').click(function(){
+                var data = {
+                    func: 'right'
+                }
+                share.send(data);
+            });
+        });	
+     
+    </script>
+</head>
+<body>
+    <div class="wrapper-main">
+    <table class="table-arrow">
+        <tr>
+            <td></td>
+            <td><button class="btn x-extra-large red js-btn-up">Up</button>    </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button class="btn x-extra-large red js-btn-left">Left</button></td>
+            <td><button class="btn medium green js-btn-ok">Ok</button></td>
+            <td><button class="btn x-extra-large red js-btn-right">Right</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="btn x-extra-large red js-btn-down">Down</button></td>
+            <td></td>
+        </tr>
+    </table>
+        <div class="js-consoleLog consoleLog"></div>
+    </div>
+</body>
+</html>
