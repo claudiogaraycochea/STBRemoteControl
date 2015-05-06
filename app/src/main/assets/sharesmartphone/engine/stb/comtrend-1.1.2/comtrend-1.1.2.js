@@ -10,6 +10,7 @@ share.initSTB = function (){
 
 	/* Inicializa API */
   setInterval(this.listenerSTB, 5000);
+  share.afterConnect();
 },
 
 share.listenerSTB = function(){

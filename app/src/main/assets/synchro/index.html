@@ -26,6 +26,15 @@
             });
         }
 
+        share.afterConnect = function(){
+            //alert('despues de conectar envia esta alerta');
+            var data = {
+                func: 'componentMainMenu',
+                param: 'x=1&y=2'
+            }
+            share.send(data);
+        }
+
         share.receive = function(data){
             //var param=share.getArrayParam(param);
             share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);

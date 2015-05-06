@@ -394,4 +394,6 @@ li.disabled {
   font-size: 16px;
   padding: 10px;
   box-sizing: border-box;
+  height: 100px;
+  overflow: auto;
 }
