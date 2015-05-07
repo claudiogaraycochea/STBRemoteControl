@@ -39,6 +39,7 @@ share.getAPIResponse = function(engineData){
       if(data!=null){
         var data=share.decodeString(data.data);
         if(APICommand=='output'){
+          share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);
           share.receive(JSON.parse(data));
         }
       }

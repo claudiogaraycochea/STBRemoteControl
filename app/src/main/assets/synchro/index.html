@@ -12,13 +12,14 @@
     <script>
 
         function openControlJoystick(){
-    //        $(location).attr('href', 'file:///android_asset/control/joystick/index.html');
-            $(location).attr('href', '../control/joystick/index.html');
+            
+//            $(location).attr('href', '../control/joystick/index.html');
         }
 
+        /* Abre un componente */
         function openComponent(param){
             var p = share.paramToArray(param);
-            console.log('openComponent '+p.componentName+' > url:'+p.url);
+            share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
                 case 'ControlJoystick':{
                     openControlJoystick();
@@ -27,13 +28,10 @@
                 default:
                     console.log("Componente no declarado");
             }
-            
         }
 
         /* Esta función se ejecuta después de conectar con el dispositivo remoto */
         share.ready = function(data){
-            share.consoleLog('Dispositivo sincronizado');
-            $('.js-connections').html('<p class="notification success">Dispositivo sincronizado</p>');
             var data = {
                 func: 'openComponent',
                 param: 'componentName=MainMenu'
@@ -43,7 +41,6 @@
 
         share.receive = function(data){
             var p=share.paramToArray(data.param);
-            share.consoleLog('shareReceive < func: '+data.func+' / param: '+data.param);
             switch(data.func) {
                 case 'ready':{
                     share.ready(data);
@@ -84,23 +81,29 @@
                 share.connectEngine(data);
             });
 
-            $('.js-btn-load').click(function(){
-                $(location).attr('href', 'file:///android_asset/control/joystick/index.html');
+            $('.js-open-joystick').click(function(){
+                $(location).attr('href', '../control/joystick/index.html');
             });
-            $('.js-path').html(document.URL+' <br> '+location.href+' <br> '+location.origin);
+
+            $('.js-open-cookie').click(function(){
+                share.consoleLog("engineSelected 1: "+share.getLocalVar('engineSelected'));
+            });
+
+
+           /* $('.js-open-joystick').click(function(){
+
+                //openControlJoystick();
+            });*/
+            
         }); 
      
     </script>
 
 </head>
 <body>
-    <a href='control.html'>control1</a>
-    <a href='file:///android_asset/www/synchro/control.html'>control2</a>
-    <a href='file///android_asset/synchro/control.html'>control3</a>
-    <a href='control.html'>control4</a>
-    <div class="js-path"></div>
-    <button class="js-btn-load">Abrir</button>
     <div class="">
+        <button class="js-open-joystick">joystick</button>
+        <button class="js-open-cookie">cookie</button>
         <div class="js-connections">
             <div class="js-div">
                 <p>

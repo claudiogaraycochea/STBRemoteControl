@@ -11,8 +11,8 @@
     <script>
 
         function move(data){
-            //alert('Move:'+data);
             console.log('move:'+data);
+            $('.js-display').append('<h1>'+data+'</h1>');
         }
 
         function openMainMenu(){
@@ -35,7 +35,6 @@
 
         /* Esta función se ejecuta después de conectar con el dispositivo remoto */
         smartTV.ready = function(data){
-            console.log('Dispositivo sincronizado');
             var data = {
                 func: 'openComponent',
                 param: 'componentName=ControlJoystick'
@@ -71,6 +70,10 @@
                     move('right');
                     break;
                 }
+                case 'ok':{
+                    move('ok');
+                    break;
+                }
                 default:
                     console.log("Función no declarada");
             }
@@ -92,5 +95,6 @@
 <body>
     <h1>MAIN MENU</h1>
     <button class="js-btn-play btn medium red">play</button>
+    <div class="js-display"></div>
 </body>
 </html>

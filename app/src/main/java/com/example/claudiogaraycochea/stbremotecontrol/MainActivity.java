@@ -20,6 +20,11 @@ import android.widget.TextView;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import org.apache.http.cookie.Cookie;
+import android.webkit.WebStorage;
+import android.webkit.WebViewDatabase;
 
 
 public class MainActivity extends ActionBarActivity
@@ -37,6 +42,7 @@ public class MainActivity extends ActionBarActivity
 
     private WebView mWebView;
 
+    private static WebViewClient mWebViewClient = new WebViewClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +60,17 @@ public class MainActivity extends ActionBarActivity
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mWebView.setWebViewClient(new WebViewClient());
+        webSettings.setDomStorageEnabled(true);  // localStorage
 
+        mWebView.getSettings().setDatabaseEnabled(true);
+        webSettings.setDatabasePath("/data/data/" + mWebView.getContext().getPackageName() + "/databases/");
+        webSettings.setDomStorageEnabled(true);
+
+        //webSettings.setDatabasePath("/data/data/www.myapp.whatever/databases/");
+
+
+        //mWebView.setWebViewClient(new WebViewClient());
+        mWebView.setWebViewClient(mWebViewClient);
         mWebView.loadUrl("file:///android_asset/synchro/index.html");
     }
 

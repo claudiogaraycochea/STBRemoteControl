@@ -6,37 +6,76 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="../../js/sharesmartphone.js"></script>
+    <script type="text/javascript" src="../../sharesmartphone/share/js/jquery-1.8.2.min.js"></script>
+    <script>var hostBase = "../../"; // PARA TEST</script>
+    <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function getURLParam(name){
-            if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-            return decodeURIComponent(name[1]);
-        }
-
         $(document).ready(function() {
-            share.init();
+           /* share.init();
+
+            $('.js-btn-up').click(function(){
+                var data = {
+                    func: 'up'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-down').click(function(){
+                var data = {
+                    func: 'down'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-left').click(function(){
+                var data = {
+                    func: 'left'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-right').click(function(){
+                var data = {
+                    func: 'right'
+                }
+                share.send(data);
+            });
+
+            $('.js-btn-ok').click(function(){
+                var data = {
+                    func: 'ok'
+                }
+                share.send(data);
+            });            */
+
+
+            $('.js-open-cookie').click(function(){
+                share.consoleLog("engineSelected 1: "+share.getLocalVar('engineSelected'));
+            });
+
+
         });	
      
     </script>
 </head>
 <body>
+        <button class="js-open-cookie">cookie</button>
     <div class="wrapper-main">
     <table class="table-arrow">
         <tr>
             <td></td>
-            <td><button class="btn x-extra-large red"><i class="icon-arrow-up"></i></button>    </td>
+            <td><button class="btn x-extra-large red js-btn-up"><i class="icon-arrow-up"></i></button>    </td>
             <td></td>
         </tr>
         <tr>
-            <td><button class="btn x-extra-large red"><i class="icon-arrow-left"></i></button></td>
-            <td><button class="btn medium green">Ok</button></td>
-            <td><button class="btn x-extra-large red"><i class="icon-arrow-right"></i></button></td>
+            <td><button class="btn x-extra-large red js-btn-left"><i class="icon-arrow-left"></i></button></td>
+            <td><button class="btn medium green js-btn-ok">Ok</button></td>
+            <td><button class="btn x-extra-large red js-btn-right"><i class="icon-arrow-right"></i></button></td>
         </tr>
         <tr>
             <td></td>
-            <td><button class="btn x-extra-large red"><i class="icon-arrow-down"></i></button></td>
+            <td><button class="btn x-extra-large red js-btn-down"><i class="icon-arrow-down"></i></button></td>
             <td></td>
         </tr>
     </table>
@@ -51,5 +90,6 @@
                 </p>
 
     </div>
+    <div class="js-consoleLog consoleLog"></div>
 </body>
 </html>
