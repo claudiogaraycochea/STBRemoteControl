@@ -12,8 +12,7 @@
     <script>
 
         function openControlJoystick(){
-            
-//            $(location).attr('href', '../control/joystick/index.html');
+            $(location).attr('href', '../control/joystick/index.html');
         }
 
         /* Abre un componente */
@@ -84,16 +83,6 @@
             $('.js-open-joystick').click(function(){
                 $(location).attr('href', '../control/joystick/index.html');
             });
-
-            $('.js-open-cookie').click(function(){
-                share.consoleLog("engineSelected 1: "+share.getLocalVar('engineSelected'));
-            });
-
-
-           /* $('.js-open-joystick').click(function(){
-
-                //openControlJoystick();
-            });*/
             
         }); 
      
@@ -102,8 +91,6 @@
 </head>
 <body>
     <div class="">
-        <button class="js-open-joystick">joystick</button>
-        <button class="js-open-cookie">cookie</button>
         <div class="js-connections">
             <div class="js-div">
                 <p>

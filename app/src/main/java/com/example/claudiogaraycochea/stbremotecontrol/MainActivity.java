@@ -21,11 +21,6 @@ import android.webkit.WebView;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import org.apache.http.cookie.Cookie;
-import android.webkit.WebStorage;
-import android.webkit.WebViewDatabase;
-
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -62,14 +57,8 @@ public class MainActivity extends ActionBarActivity
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);  // localStorage
 
-        mWebView.getSettings().setDatabaseEnabled(true);
-        webSettings.setDatabasePath("/data/data/" + mWebView.getContext().getPackageName() + "/databases/");
-        webSettings.setDomStorageEnabled(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
 
-        //webSettings.setDatabasePath("/data/data/www.myapp.whatever/databases/");
-
-
-        //mWebView.setWebViewClient(new WebViewClient());
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.loadUrl("file:///android_asset/synchro/index.html");
     }
@@ -188,5 +177,6 @@ public class MainActivity extends ActionBarActivity
         mWebView.loadUrl("file:///android_asset/"+url);
         String result=mWebView.getUrl();
     }
+
 
 }
