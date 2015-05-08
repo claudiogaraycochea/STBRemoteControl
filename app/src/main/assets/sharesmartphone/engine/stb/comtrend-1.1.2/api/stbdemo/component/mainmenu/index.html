@@ -1,0 +1,155 @@
+
+<html>
+<head>
+
+    <title>MAIN MENU</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style-mainmenu.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/example.js"></script>
+
+    <script>
+
+        function move(data){
+            console.log('move:'+data);
+
+            if(data=='right'){ 
+              if(!$currElement.next().length){
+                $currElement = $currElement.prev();
+                $("button").css("background", "");
+                $currElement.css("background", "red");
+              }
+              $currElement = $currElement.next();
+              $("button").css("background", "");
+              $currElement.css("background", "red");
+            }
+
+            if(data=='left'){ 
+              if(!$currElement.prev().length){
+                $currElement = $currElement.next();
+                $("button").css("background", "");
+                $currElement.css("background", "red");
+              }
+              $currElement = $currElement.prev();
+              $("button").css("background", "");
+              $currElement.css("background", "red");
+            }       
+
+            if(data=='ok'){ 
+              var url='../component/'+$currElement.attr('val')+'/index.html';
+              openURL(url);
+            }     
+
+        }
+
+        function openURL(url){
+            $(location).attr('href', url);
+        }
+
+        function openComponent(param){
+            var p = smartTV.paramToArray(param);
+            console.log('openComponent '+p.componentName+' > url:'+p.url);
+            switch(p.componentName) {
+                case 'MainMenu':{
+                    openURL('component/mainmenu/index.html');
+                    break;
+                }
+                default:
+                    console.log("Componente no declarado");
+            }
+            
+        }
+
+        /* Esta función se ejecuta después de conectar con el dispositivo remoto */
+        smartTV.ready = function(data){
+            var data = {
+                func: 'openComponent',
+                param: 'componentName=ControlJoystick'
+            };
+            smartTV.send(data);
+        }
+
+        /* Recepción de comandos */
+        smartTV.receive = function(data){
+            var p = smartTV.paramToArray(data.param);
+            switch(data.func) {
+                case 'ready':{
+                    smartTV.ready(data.param);
+                    break;
+                }
+                case 'openComponent':{
+                    openComponent(data.param);
+                    break;
+                }
+                case 'up':{
+                    move('up');
+                    break;
+                }
+                case 'down':{
+                    move('down');
+                    break;
+                }
+                case 'left':{
+                    move('left');
+                    break;
+                }
+                case 'right':{
+                    move('right');
+                    break;
+                }
+                case 'ok':{
+                    move('ok');
+                    break;
+                }
+                default:
+                    console.log("Función no declarada");
+            }
+        }
+
+        $(document).ready(function() {
+            smartTV.init();      
+
+            $('.js-btn-tv').click(function(){
+                alert('TV');
+            });
+
+            $('.js-btn-video').click(function(){
+                alert('VIDEO');
+            });
+
+            $('.js-btn-music').click(function(){
+                alert('Music');
+            });
+
+            $('.js-btn-game').click(function(){
+                alert('Game');
+            });
+
+
+         });
+    </script>
+
+</head>
+<body>
+    <div class="wrapper-header"><h1>MAIN MENU</h1></div>
+    <!--<div class="js-display"></div>-->
+    <div class="wrapper-center">
+        <div class="content-center">
+            <button id="start" class="js-btn-tv btn large red" val="tv"><i class="icon-tv"></i><p>TV</p></button>
+            <button class="js-btn-video btn large red" val="video"><i class="icon-video"></i><p>Video</p></button>
+            <button class="js-btn-music btn large red" val="music"><i class="icon-music"></i><p>Music</p></button>
+            <button class="js-btn-game btn large red" val="game"><i class="icon-game"></i><p>Game</p></button>
+        </div>
+    </div>
+
+
+  <script type="text/javascript">
+    var $currElement = $("#start");
+    $currElement.css("background", "red");
+  </script>  
+
+</body>
+</html>

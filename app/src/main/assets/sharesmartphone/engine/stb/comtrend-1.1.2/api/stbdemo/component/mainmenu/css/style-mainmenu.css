@@ -1,0 +1,39 @@
+
+[class^="icon-"],
+[class*=" icon-"],
+[class^="button-"],
+[class*=" button-"] {
+  vertical-align: middle;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.icon-tv {
+    background-image: url("../img/icon-tv.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-video {
+    background-image: url("../img/icon-video.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-music {
+    background-image: url("../img/icon-music.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-game {
+    background-image: url("../img/icon-game.png");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+
