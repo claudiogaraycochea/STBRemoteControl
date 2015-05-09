@@ -11,8 +11,8 @@
     <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function openControlVideo(){
-            $(location).attr('href', '../video/index.html');
+        function openControlJoystick(){
+            $(location).attr('href', '../joystick/index.html');
         }
 
         /* Abre un componente */
@@ -20,8 +20,8 @@
             var p = share.paramToArray(param);
             share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
-                case 'ControlVideo':{
-                    openControlVideo();
+                case 'ControlJoystick':{
+                    openControlJoystick();
                     break;
                 }
                 default:
