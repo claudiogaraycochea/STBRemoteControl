@@ -1,6 +1,6 @@
 //var hostSTB = '10.160.10.200';
 
-var hostSTB = 'tokelocal.com'
+var hostSTB = 'tokelocal.com';
 
 var smartTV = {
 

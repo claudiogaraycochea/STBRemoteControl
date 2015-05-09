@@ -9,7 +9,7 @@ share.initSTB = function (){
 	share.consoleLog('Conectando Comtrend-1.1.2');	
 
 	/* Inicializa API */
-  setInterval(this.listenerSTB, 200);
+  setInterval(this.listenerSTB, 500);
 
   var data = {
       func: 'ready'

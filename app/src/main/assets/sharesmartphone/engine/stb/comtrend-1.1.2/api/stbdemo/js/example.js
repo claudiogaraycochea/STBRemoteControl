@@ -1,13 +1,13 @@
 //var hostSTB = '10.160.10.200';
 
-var hostSTB = 'tokelocal.com'
+var hostSTB = 'tokelocal.com';
 
 var smartTV = {
 
 	/* Inicializa el framework */
     init: function(){
     	console.log('Iniciando smartTV');
-    	setInterval(this.listen, 200);
+    	setInterval(this.listen, 500);
     	smartTV.ready();
     },
 	listen: function(){

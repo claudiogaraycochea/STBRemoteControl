@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="css/style-mainmenu.css">
+    <link rel="stylesheet" href="css/style-video.css">
     <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../../js/example.js"></script>
 
@@ -39,7 +39,7 @@
             }       
 
             if(data=='ok'){ 
-              var url='../'+$currElement.attr('val')+'/index.html';
+              var url='player.html?id='+$currElement.attr('val');
               openURL(url);
             }     
 
@@ -47,6 +47,20 @@
 
         function openURL(url){
             $(location).attr('href', url);
+        }
+
+        function openComponent(param){
+            var p = smartTV.paramToArray(param);
+            console.log('openComponent '+p.componentName+' > url:'+p.url);
+            switch(p.componentName) {
+                case 'MainMenu':{
+                    openURL('../../mainmenu/index.html');
+                    break;
+                }
+                default:
+                    console.log("Componente no declarado");
+            }
+            
         }
 
         /* Esta función se ejecuta después de conectar con el dispositivo remoto */
@@ -97,23 +111,53 @@
 
         $(document).ready(function() {
             smartTV.init();      
+
+            $('.js-btn-tv').click(function(){
+                alert('TV');
+            });
+
+            $('.js-btn-video').click(function(){
+                alert('VIDEO');
+            });
+
+            $('.js-btn-music').click(function(){
+                alert('Music');
+            });
+
+            $('.js-btn-game').click(function(){
+                alert('Game');
+            });
+
+
          });
     </script>
 
 </head>
 <body>
-    <div class="wrapper-header"><h1>MAIN MENU</h1></div>
+    <div class="wrapper-header"><h1>VIDEO</h1></div>
+    <!--<div class="js-display"></div>-->
     <div class="wrapper-center">
         <div class="content-center">
-            <button id="start" class="js-btn-tv btn large red" val="tv"><i class="icon-tv"></i><p>TV</p></button>
-            <button class="js-btn-video btn large red" val="video"><i class="icon-video"></i><p>Video</p></button>
-            <button class="js-btn-music btn large red" val="music"><i class="icon-music"></i><p>Music</p></button>
-            <button class="js-btn-game btn large red" val="game"><i class="icon-game"></i><p>Game</p></button>
+            <button id="start" class="js-btn wrapper-video-btn" val="1">
+                <img src="img/video1.jpg"></img>
+                <p>Fury</p>
+            </button>
+            <button class="js-btn wrapper-video-btn" val="2">
+                <img src="img/video2.jpg"></img>
+                <p>Whiplash</p>
+            </button>
+            <button class="js-btn wrapper-video-btn" val="3">
+                <img src="img/video3.jpg"></img>
+                <p>Avengers</p>
+            </button>
         </div>
     </div>
-  <script type="text/javascript">
-    var $currElement = $("#start");
-    $currElement.css("background", "red");
-  </script>  
+
+
+    <script type="text/javascript">
+        var $currElement = $("#start");
+        $currElement.css("background", "red");
+    </script>  
+
 </body>
 </html>
