@@ -5,6 +5,7 @@
     <title>MAIN MENU</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/style-mainmenu.css">
@@ -12,6 +13,10 @@
     <script type="text/javascript" src="../../js/example.js"></script>
 
     <script>
+        function getStyleSelector() {
+                $("button").attr("class", "wrapper-selector");
+                $currElement.attr("class", "wrapper-selector highlight");
+        }
 
         function move(data){
             console.log('move:'+data);
@@ -19,23 +24,17 @@
             if(data=='right'){ 
               if(!$currElement.next().length){
                 $currElement = $currElement.prev();
-                $("button").css("background", "");
-                $currElement.css("background", "red");
               }
               $currElement = $currElement.next();
-              $("button").css("background", "");
-              $currElement.css("background", "red");
+              getStyleSelector();
             }
 
             if(data=='left'){ 
-              if(!$currElement.prev().length){
-                $currElement = $currElement.next();
-                $("button").css("background", "");
-                $currElement.css("background", "red");
-              }
-              $currElement = $currElement.prev();
-              $("button").css("background", "");
-              $currElement.css("background", "red");
+                if(!$currElement.prev().length){
+                    $currElement = $currElement.next();
+                }
+                $currElement = $currElement.prev();
+                getStyleSelector();
             }       
 
             if(data=='ok'){ 
@@ -101,19 +100,19 @@
     </script>
 
 </head>
-<body>
-    <div class="wrapper-header"><h1>MAIN MENU</h1></div>
+<body class="bg">
+    <div class="wrapper-header"><div class="title">MAIN MENU</div> <div class="logo">Sharesmartphone <span class="slogan">Framework to connect devices</span></div></div>
     <div class="wrapper-center">
         <div class="content-center">
-            <button id="start" class="js-btn-tv btn large red" val="tv"><i class="icon-tv"></i><p>TV</p></button>
-            <button class="js-btn-video btn large red" val="video"><i class="icon-video"></i><p>Video</p></button>
-            <button class="js-btn-music btn large red" val="music"><i class="icon-music"></i><p>Music</p></button>
-            <button class="js-btn-game btn large red" val="game"><i class="icon-game"></i><p>Game</p></button>
+            <button id="start" class="js-btn-tv wrapper-selector" val="tv"><i class="icon-tv"></i><p>TV</p></button>
+            <button class="js-btn-video wrapper-selector" val="video"><i class="icon-video"></i><p>Video</p></button>
+            <button class="js-btn-music wrapper-selector" val="music"><i class="icon-music"></i><p>Music</p></button>
+            <button class="js-btn-game wrapper-selector" val="game"><i class="icon-game"></i><p>Game</p></button>
         </div>
     </div>
   <script type="text/javascript">
     var $currElement = $("#start");
-    $currElement.css("background", "red");
+    $currElement.attr("class", "wrapper-selector highlight");
   </script>  
 </body>
 </html>

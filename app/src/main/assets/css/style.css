@@ -1,10 +1,10 @@
 body{
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 120%;
   text-align: center;
   text-shadow: inset 1px 1px 1px 1px #999999;
   font-size: 18px;
-  background: #161d25;
+  background: #0e0e0e;
   color: #FFFFFF;
   box-sizing: border-box;
 }
@@ -92,6 +92,7 @@ h2 {
 }
 .btn.transparent{
   background-color: transparent;
+  border: 0;
 }
 
 .btn.green{
@@ -105,10 +106,22 @@ h2 {
   color: #fff;
 }
 .btn.red{
-  background-color: #cc2a35;
+  background: -webkit-linear-gradient(#7a3030,#470b0b); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#7a3030,#470b0b); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#7a3030,#470b0b); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#7a3030,#470b0b); /* Standard syntax */
   border: 0px solid #cc2a35;
   color: #fff;
 }
+.btn.black {
+  background: -webkit-linear-gradient(#3e3e3e,#2a2a2a); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#3e3e3e,#2a2a2a); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#3e3e3e,#2a2a2a); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#3e3e3e,#2a2a2a); /* Standard syntax */
+  border: 0px solid #cc2a35;
+  color: #fff;
+}
+
 .btn.gray{
   background-color: #222222;
   border: 0px solid #222222;
@@ -205,20 +218,8 @@ h2 {
     height: 32px;
 }
 
-.icon-play {
-    background-image: url("../img/icon-play.png");
-    width: 32px;
-    height: 32px;
-}
-
-.icon-stop {
-    background-image: url("../img/icon-stop.png");
-    width: 32px;
-    height: 32px;
-}
-
-.icon-pause {
-    background-image: url("../img/icon-pause.png");
+.icon-volume {
+    background-image: url("../img/icon-menu.png");
     width: 32px;
     height: 32px;
 }
@@ -395,4 +396,11 @@ li.disabled {
   box-sizing: border-box;
   height: 100px;
   overflow: auto;
+  display: none;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 10px;
 }

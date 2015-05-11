@@ -52,7 +52,7 @@
 				$file = 'input.txt'; // file to listen smartphone
 				file_put_contents($file, $data);
 
-				$data_result['status'] = 'true';
+				//$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -74,7 +74,7 @@
 					$data_result['data'] = $current;
 					file_put_contents($file, '');
 				}
-				$data_result['status'] = 'true';
+				//$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -94,7 +94,7 @@
 				$file = 'output.txt'; // file to listen smartphone
 				file_put_contents($file, $data);
 
-				$data_result['status'] = 'true';
+				//$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
@@ -118,31 +118,13 @@
 					file_put_contents($file, '');
 				}
 
-				$data_result['status'] = 'true';
+				//$data_result['status'] = 'true';
                 // If success everythig is good send header as "OK" and return list of users in JSON format
 				$this->response($this->json($data_result), 200);
 			}
 			$this->response('',204);	// If no records "No Content" status
 		}
 
-
-		//OUTPUT
-		private function test(){
-			if($this->get_request_method() != "GET"){
-				$this->response('',406);
-			}
-			$token = 'eeeeeeeeeeeeeeeeeee';
-
-            if($token!=''){
-				$data_result['data'] = 'ffffffffffffffffffffffffffff';
-				$data_result['status'] = 'true';
-                // If success everythig is good send header as "OK" and return list of users in JSON format
-				$this->response($this->json($data_result), 200);
-			}
-
-			$this->response('',204);	// If no records "No Content" status
-		}
-	
 		/*
 		 *	Encode array into JSON
 		*/

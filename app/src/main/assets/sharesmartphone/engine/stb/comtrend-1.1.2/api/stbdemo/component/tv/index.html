@@ -2,13 +2,13 @@
 <html>
 <head>
 
-    <title>MAIN MENU</title>
+    <title>TV</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="css/style-video.css">
+    <link rel="stylesheet" href="css/style-tv.css">
     <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../../js/example.js"></script>
 
@@ -40,7 +40,7 @@
         smartTV.ready = function(data){
             var data = {
                 func: 'openComponent',
-                param: 'componentName=ControlVideo'
+                param: 'componentName=ControlTV'
             };
             smartTV.send(data);
         }
@@ -57,12 +57,14 @@
                     openComponent(data.param);
                     break;
                 }
-                case 'play':{
-                    player.playVideo();
+                case 'up':{
+                    youtubeURL="http://www.youtube.com/embed/aaLCZ14qwF4?enablejsapi=1";
+                    $('#player').attr('src',youtubeURL);
                     break;
                 }
-                case 'pause':{
-                    player.pauseVideo();
+                case 'down':{
+                    youtubeURL="http://www.youtube.com/embed/rxdlQuVywvg?enablejsapi=1";
+                    $('#player').attr('src',youtubeURL);
                     break;
                 }
                 default:
@@ -82,32 +84,26 @@
             <div id="player"></div>
         </div>
     </div>
-
     <script>
-        // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
 
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
         var player;
         function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          videoId: '-OGvZoIrXpg',
-          events: {
-            'onReady': onPlayerReady
-          }
-        });
+            player = new YT.Player('player', {
+              videoId: 'aaLCZ14qwF4',
+              events: {
+                'onReady': onPlayerReady
+              }
+            });
         }
 
-        // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             event.target.playVideo();
         }
     </script>
-
 </body>
 </html>

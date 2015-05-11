@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ESCANEAR DISPOSITIVO</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style-tv.css">
+    <script>var hostBase = "../../"; // PARA TEST</script>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/sharesmartphone.js"></script>
+    <script>
+
+
+        function openControlJoystick(){
+            $(location).attr('href', '../joystick/index.html');
+        }
+
+        /* Abre un componente */
+        function openComponent(param){
+            var p = share.paramToArray(param);
+            share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
+            switch(p.componentName) {
+                case 'ControlJoystick':{
+                    openControlJoystick();
+                    break;
+                }
+                default:
+                    console.log("Componente no declarado");
+            }
+        }
+        
+        share.receive = function(data){
+            var p=share.paramToArray(data.param);
+            switch(data.func) {
+                case 'openComponent':{
+                    openComponent(data.param);
+                    break;
+                }
+                default: {
+                    share.reserved(data.func, data.param);
+                }
+            }
+        }
+
+        $(document).ready(function() {
+            share.init();
+
+            $(".js-open-add").animate({"left": "+=1500px"}, "slow");
+
+            $(".js-close-add").click(function(){
+                $(".js-wrapper-control").animate({"left": "+=1500px"}, "slow");
+                $(".js-open-add").animate({"left": "-=1500px"}, "slow");
+            });
+            
+            $(".js-open-control").click(function(){
+                $(".js-wrapper-control").animate({"left": "-=1500px"}, "slow");
+                $(".js-open-add").animate({"left": "+=1500px"}, "slow");
+            });
+
+            $('.js-btn-mainmenu').click(function(){
+                alert('mainmenu');
+                var data = {
+                   func: 'openComponent',
+                   param: 'componentName=MainMenu'
+                }
+                share.send(data);
+            });
+
+        });	
+     
+    </script>
+</head>
+<body>
+    <div class="">
+    	<div class="wrapper-header">
+            <div class="span-3-1 float-left"><input type="text" class="inp text large" placeholder="Buscar"></div>
+        </div>
+        <div class="wrapper-control js-wrapper-control">
+                <button class="btn extra-large black"><i class="icon-up"></i></button>
+                <div class="divisor"></div>
+                <button class="btn extra-large black"><i class="icon-down"></i></button>
+                <div class="divisor"></div>
+                <button class="js-close-add btn large black"><i class="icon-tag"></i></button>
+                <button class="btn large black"><i class="icon-volume"></i></button>
+                <button class="btn large black"><i class="icon-recomend"></i></button>
+                <button class="js-close-add btn large black"><i class="icon-search"></i></button>
+                <button class="js-btn-mainmenu btn large red"><i class="icon-menu"></i></button>
+                <div class="divisor"></div>
+                <p>
+                    <b>Hola claudio!</b>
+                </p>
+                <p>
+                    Te recomendamos que hoy a las 21hs tienes el mejor futbol.<br>
+                    <button class="btn medium blue">Recordar</button>
+                </p>
+
+        </div>
+        <div class="wrapper-open-control js-open-add">
+            <button class="js-open-control btn large red"><i class="icon-left"></i></button>
+        </div>
+        <div class="wrapper-body">
+            <ul>
+                <li><i class="icon-channel-canal-plusliga"></i> Canal Plus Liga</li>
+                <li><i class="icon-channel-gol2-internacional"></i> Gol 2 Internacional</li>
+                <li><i class="icon-channel-movistar-futbol"></i> Movistar Futbol</li>
+                <li><i class="icon-channel-antena3"></i> Antena 3</li>
+                <li><i class="icon-channel-cnni"></i> CNN Internacional</li>
+                <li><i class="icon-channel-russia_today"></i> Russia Today</li>
+                <li><i class="icon-channel-neox"></i> Neox</li>
+                <li><i class="icon-channel-etb2"></i> Etb2</li>
+                <li><i class="icon-channel-LA-OTRA-44x36"></i> La Otra 4</li>
+                <li><i class="icon-channel-National-Geographic-44x36"></i> National Geographic</li>
+                <li><i class="icon-channel-discoverychannel"></i> Discovery Channel</li>
+                <li><i class="icon-channel-discoverymax"></i> Discovery Max</li>
+                <li><i class="icon-channel-historia"></i> Historia</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
