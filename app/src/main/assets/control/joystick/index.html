@@ -5,13 +5,17 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/style-joystick.css">
     <script type="text/javascript" src="../../sharesmartphone/share/js/jquery-1.8.2.min.js"></script>
     <script>var hostBase = "../../"; // PARA TEST</script>
     <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
+        function openControlMusic(){
+            $(location).attr('href', '../music/index.html');
+        }
+
         function openControlVideo(){
             $(location).attr('href', '../video/index.html');
         }
@@ -25,6 +29,10 @@
             var p = share.paramToArray(param);
             share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
+                case 'ControlMusic':{
+                    openControlMusic();
+                    break;
+                }
                 case 'ControlVideo':{
                     openControlVideo();
                     break;
@@ -135,10 +143,18 @@
             <button class="js-btn-mainmenu btn large black"><i class="icon-menu"></i></button>
         </div>
         <div class="float-right">
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-mute"></i></button>
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-down"></i></button>
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-up"></i></button>
-        </div>
-    </div>
+            <ul class="list-horizontal">
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-mute"></i></button>
+                </li>
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-down"></i></button>
+                </li>
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-up"></i></button>
+                </li>
+            </ul>
+        </div>        
+    </div> 
 </body>
 </html>

@@ -1,0 +1,63 @@
+.video-container {
+	float: left;
+	padding: 10px;
+}
+.video-container span{
+	display: block;
+	padding: 10px;
+	font-size: 14px;
+}
+.wrapper-player {
+	top: 0;
+	display: block;
+	padding: 10px;
+	position: fixed;
+	z-index: 100;
+	background: #222222;
+	height: 100%;
+}
+.wrapper-player .image{
+	display: block;
+	margin: 0 auto;
+	width: 40%;
+}
+.wrapper-player .control{
+	display: block;
+	padding: 20px;
+	font-size: 14px;
+}
+.wrapper-player .info{
+	display: block;
+	padding: 20px;
+	font-size: 14px;
+}
+.icon-play {
+    background-image: url("../img/icon-play.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-stop {
+    background-image: url("../img/icon-stop.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-pause {
+    background-image: url("../img/icon-pause.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-rw {
+    background-image: url("../img/icon-rw.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-ffw {
+    background-image: url("../img/icon-ffw.png");
+    width: 32px;
+    height: 32px;
+}
+

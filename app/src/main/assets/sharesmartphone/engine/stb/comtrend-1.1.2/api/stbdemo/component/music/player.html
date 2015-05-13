@@ -40,7 +40,7 @@
         smartTV.ready = function(data){
             var data = {
                 func: 'openComponent',
-                param: 'componentName=ControlVideo'
+                param: 'componentName=ControlMusic'
             };
             smartTV.send(data);
         }
@@ -96,7 +96,7 @@
         var player;
         function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          videoId: '-OGvZoIrXpg',
+          videoId: 'qR6QIuWFn9E',
           events: {
             'onReady': onPlayerReady
           }

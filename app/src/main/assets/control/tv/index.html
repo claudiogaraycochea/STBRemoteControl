@@ -5,7 +5,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <meta charset="utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/style-tv.css">
     <script type="text/javascript" src="../../sharesmartphone/share/js/jquery-1.8.2.min.js"></script>
@@ -76,17 +76,18 @@
 <body>
     <div class="wrapper-main">
         <div class="control">
-            <button class="js-btn-up btn extra-large black"><i class="icon-arrow-up"></i></button>
+            <button class="js-btn-up btn xx-extra-large black"><i class="icon-arrow-up"></i></button>
             <div class="divisor"></div>
-            <button class="js-btn-down btn extra-large black"><i class="icon-arrow-down"></i></button>
+            <button class="js-btn-down btn xx-extra-large black"><i class="icon-arrow-down"></i></button>
             <div class="divisor"></div>
-            <button class="js-close-add btn large black"><i class="icon-search"></i></button>
-            <button class="btn large black"><i class="icon-tag"></i></button>
-            <button class="btn large black"><i class="icon-recomend"></i></button>
-            <button class="js-close-add btn large black"><i class="icon-search"></i></button>
-        </div>
-        <div class="bottom">
-            <button class="js-btn-mainmenu btn large red"><i class="icon-menu"></i></button>
+            <div>
+                <ul class="list-horizontal">
+                    <li><button class="js-close-add btn large black float-left"><i class="icon-search"></i></button></li>
+                    <li><button class="btn large black float-left"><i class="icon-tag"></i></button></li>
+                    <li><button class="btn large black float-left"><i class="icon-recomend"></i></button></li>
+                    <li><button class="btn large black float-left"><i class="icon-recall"></i></button></li>    
+                </ul>
+            </div>            
         </div>
     </div>
     <div class="bottom">
@@ -94,10 +95,18 @@
             <button class="js-btn-mainmenu btn large black"><i class="icon-menu"></i></button>
         </div>
         <div class="float-right">
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-mute"></i></button>
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-down"></i></button>
-            <button class="js-btn-mainmenu btn large black"><i class="icon-volume-up"></i></button>
-        </div>
+            <ul class="list-horizontal">
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-up"></i></button>
+                </li>
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-down"></i></button>
+                </li>
+                <li>
+                    <button class="btn large black float-left"><i class="icon-volume-mute"></i></button>
+                </li>
+            </ul>
+        </div>        
     </div>
 </body>
 </html>
