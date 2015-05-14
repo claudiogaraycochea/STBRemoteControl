@@ -13,17 +13,11 @@
     <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function openControlJoystick(){
-            $(location).attr('href', '../joystick/index.html');
-        }
-
-        /* Abre un componente */
         function openComponent(param){
             var p = share.paramToArray(param);
-            share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
                 case 'ControlJoystick':{
-                    openControlJoystick();
+                    $(location).attr('href', '../joystick/index.html');
                     break;
                 }
                 default:

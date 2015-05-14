@@ -225,6 +225,18 @@ button {
     height: 32px;
 }
 
+.icon-numeric {
+    background-image: url("../img/icon-numeric.png");
+    width: 32px;
+    height: 32px;
+}
+
+.icon-alarm {
+    background-image: url("../img/icon-alarm.png");
+    width: 32px;
+    height: 32px;
+}
+
 /* Video */
 .icon-rw {
     background-image: url("../img/icon-rw.png");

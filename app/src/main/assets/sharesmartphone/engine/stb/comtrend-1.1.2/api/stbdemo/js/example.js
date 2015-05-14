@@ -7,7 +7,7 @@ var smartTV = {
 	/* Inicializa el framework */
     init: function(){
     	console.log('Iniciando smartTV');
-    	setInterval(this.listen, 500);
+    	setInterval(this.listen, 300);
     	smartTV.ready();
     },
 	listen: function(){

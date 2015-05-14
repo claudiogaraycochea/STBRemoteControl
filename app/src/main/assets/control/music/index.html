@@ -13,24 +13,18 @@
     <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function openControlJoystick(){
-            $(location).attr('href', '../joystick/index.html');
-        }
-
-        /* Abre un componente */
         function openComponent(param){
             var p = share.paramToArray(param);
-            share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
                 case 'ControlJoystick':{
-                    openControlJoystick();
+                    $(location).attr('href', '../joystick/index.html');
                     break;
                 }
                 default:
                     console.log("Componente no declarado");
             }
         }
-        
+
         share.receive = function(data){
             var p=share.paramToArray(data.param);
             switch(data.func) {
@@ -94,11 +88,6 @@
                     <button class="js-btn-pause btn large black float-left"><i class="icon-ffw"></i></button>
                 </li>
             </ul>   
-            <div class="clearfix"></div>     
-            <div class="divisor"></div>
-            <button class="btn extra-large red">VER TRAILER</button>
-            <div class="divisor"></div>
-            <button class="btn extra-large green">VER PELICULA</button>
         </div>
     </div>
     <div class="bottom">

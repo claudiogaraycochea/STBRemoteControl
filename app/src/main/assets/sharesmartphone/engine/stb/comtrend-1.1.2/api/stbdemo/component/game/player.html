@@ -1,0 +1,80 @@
+
+<html>
+<head>
+
+    <title>MAIN MENU</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/style-video.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../../js/example.js"></script>
+
+    <script>
+        
+        function openURL(url){
+            $(location).attr('href', url);
+        }
+
+        function openComponent(param){
+            var p = smartTV.paramToArray(param);
+            console.log('openComponent '+p.componentName+' > url:'+p.url);
+            switch(p.componentName) {
+                case 'MainMenu':{
+                    openURL('../../component/mainmenu/index.html');
+                    break;
+                }
+                default:
+                    console.log("Componente no declarado");
+            }            
+        }
+
+        /* Esta función se ejecuta después de conectar con el dispositivo remoto */
+        smartTV.ready = function(data){
+            var data = {
+                func: 'openComponent',
+                param: 'componentName=ControlMusic'
+            };
+            smartTV.send(data);
+        }
+
+        /* Recepción de comandos */
+        smartTV.receive = function(data){
+            var p = smartTV.paramToArray(data.param);
+            switch(data.func) {
+                case 'ready':{
+                    smartTV.ready(data.param);
+                    break;
+                }
+                case 'openComponent':{
+                    openComponent(data.param);
+                    break;
+                }
+                case 'play':{
+                    player.playVideo();
+                    break;
+                }
+                case 'pause':{
+                    player.pauseVideo();
+                    break;
+                }
+                default:
+                    console.log("Función no declarada");
+            }
+        }
+
+        $(document).ready(function() {
+            smartTV.init(); 
+         });
+    </script>
+
+</head>
+<body>
+    <div class="wrapper-center">
+        <div class="poker-bg">
+        </div>
+    </div>
+</body>
+</html>

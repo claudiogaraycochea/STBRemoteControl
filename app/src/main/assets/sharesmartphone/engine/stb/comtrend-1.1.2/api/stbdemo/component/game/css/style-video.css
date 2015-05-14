@@ -1,0 +1,64 @@
+
+[class^="icon-"],
+[class*=" icon-"],
+[class^="button-"],
+[class*=" button-"] {
+  vertical-align: middle;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.icon-tv {
+    background-image: url("../img/icon-tv.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-video {
+    background-image: url("../img/icon-video.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-music {
+    background-image: url("../img/icon-music.svg");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.icon-game {
+    background-image: url("../img/icon-game.png");
+    background-size: 100%;
+    width: 128px;
+    height: 128px;
+}
+
+.wrapper-video-btn {
+    padding:10px;
+    background: transparent;
+    border: 1px solid red;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.poker-bg {
+    background-image: url("../img/poker-bg.png");
+    background-size: 100%;
+    width: 100%;
+}

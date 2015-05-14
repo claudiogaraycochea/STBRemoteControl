@@ -13,17 +13,11 @@
     <script type="text/javascript" src="../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function openControlJoystick(){
-            $(location).attr('href', '../joystick/index.html');
-        }
-
-        /* Abre un componente */
         function openComponent(param){
             var p = share.paramToArray(param);
-            share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
                 case 'ControlJoystick':{
-                    openControlJoystick();
+                    $(location).attr('href', '../joystick/index.html');
                     break;
                 }
                 default:
@@ -85,7 +79,8 @@
                     <li><button class="js-close-add btn large black float-left"><i class="icon-search"></i></button></li>
                     <li><button class="btn large black float-left"><i class="icon-tag"></i></button></li>
                     <li><button class="btn large black float-left"><i class="icon-recomend"></i></button></li>
-                    <li><button class="btn large black float-left"><i class="icon-recall"></i></button></li>    
+                    <li><button class="btn large black float-left"><i class="icon-recall"></i></button></li>  
+                    <li><button class="btn large black float-left"><i class="icon-numeric"></i></button></li>    
                 </ul>
             </div>            
         </div>
@@ -97,13 +92,13 @@
         <div class="float-right">
             <ul class="list-horizontal">
                 <li>
-                    <button class="btn large black float-left"><i class="icon-volume-up"></i></button>
+                    <button class="btn large black float-left"><i class="icon-volume-mute"></i></button>
                 </li>
                 <li>
                     <button class="btn large black float-left"><i class="icon-volume-down"></i></button>
                 </li>
                 <li>
-                    <button class="btn large black float-left"><i class="icon-volume-mute"></i></button>
+                    <button class="btn large black float-left"><i class="icon-volume-up"></i></button>
                 </li>
             </ul>
         </div>        

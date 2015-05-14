@@ -22,7 +22,7 @@
         function move(data){
             console.log('move:'+data);
 
-            if(data=='down'){ 
+            if(data=='right'){ 
               if(!$currElement.next().length){
                 $currElement = $currElement.prev();
               }
@@ -30,7 +30,7 @@
               getStyleSelector();
             }
 
-            if(data=='up'){ 
+            if(data=='left'){ 
                 if(!$currElement.prev().length){
                     $currElement = $currElement.next();
                 }
@@ -133,20 +133,20 @@
 
 </head>
 <body class="bg">
-    <div class="wrapper-header"><div class="title">MUSIC</div> <div class="logo">Sharesmartphone <span class="slogan">Framework to connect devices</span></div></div>
+    <div class="wrapper-header"><div class="title">GAME</div> <div class="logo">Sharesmartphone <span class="slogan">Framework to connect devices</span></div></div>
     <div class="wrapper-center">
-        <div class="content-center selector-horizontal">
+        <div class="content-center">
             <button id="start" class="js-btn wrapper-selector" val="1">
-                <img class="image" src="img/video1.jpg"></img>
-                <span class="text">Top Ten Dance 2015</span>
+                <img src="img/video1.jpg"></img>
+                <p>POKER SOCIAL</p>
             </button>
-            <button class="js-btn wrapper-selector horizontal" val="2">
-                <img class="image" src="img/video2.jpg"></img>
-                <span class="text">Shakira</span>
+            <button class="js-btn wrapper-selector" val="2">
+                <img src="img/video2.jpg"></img>
+                <p>FINGER OLIMPIC</p>
             </button>
-            <button class="js-btn wrapper-selector horizontal" val="3">
-                <img class="image" src="img/video3.jpg"></img>
-                <span class="text">David Bisbal</span>
+            <button class="js-btn wrapper-selector" val="3">
+                <img src="img/video3.jpg"></img>
+                <p>ANGRY BIRDS</p>
             </button>
         </div>
     </div>
