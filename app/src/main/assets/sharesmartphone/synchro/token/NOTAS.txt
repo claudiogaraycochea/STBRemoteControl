@@ -1,0 +1,1 @@
+Metodo de sincronizacion por Token

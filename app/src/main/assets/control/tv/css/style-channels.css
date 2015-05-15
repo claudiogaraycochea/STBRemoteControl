@@ -87,6 +87,12 @@
   height: 48px;
 }
 
+.icon-channel-nbatv {
+  background-image: url("../img/nbatv.jpg");
+  width: 60px;
+  height: 48px;
+}
+
 .wrapper-control {
   top: 0px;
   background: #222222;

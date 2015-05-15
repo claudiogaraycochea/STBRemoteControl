@@ -76,13 +76,19 @@
     </script>
 
 </head>
-<body>
+<body class="bg">
+    <div class="wrapper-header"><div class="title">MUSIC</div> <div class="logo">Sharesmartphone <span class="slogan">Framework to connect devices</span></div></div>
     <div class="wrapper-center">
-        <div class="video-wrapper">
-            <div id="player"></div>
+        <div class="content-center selector-horizontal">
+            <div>
+                <img class="img-audio" src="img/icon-audio.svg">
+            </div>
+                <img class="image" src="img/video1.jpg"></img>
+                <span class="text">Top Ten Dance 2015</span>
+
         </div>
     </div>
-
+    <div id="player" style="display: none;"></div>
     <script>
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');

@@ -151,6 +151,11 @@ button {
   background: #CCCCCC; 
   color: #979695;
 }
+.btn-return-control {
+  position: fixed;
+  top: 80px;
+  right: 0px;
+}
 .inp.text {
   box-sizing: border-box;
   -moz-box-sizing: border-box;

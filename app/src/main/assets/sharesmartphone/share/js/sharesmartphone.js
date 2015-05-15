@@ -153,5 +153,11 @@ var share = {
             return p;
         }
     },
+
+    openURL : function(url){
+        $(location).attr('href', url);
+    },
+
+
 }
 
