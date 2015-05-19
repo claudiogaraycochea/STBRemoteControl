@@ -83,6 +83,14 @@
             $('.js-open-joystick').click(function(){
                 $(location).attr('href', '../control/joystick/index.html');
             });
+
+            $('.js-webrtc-test').click(function(){
+                var data = {
+                    func: 'play',
+                    param: 'x=1'
+                };
+                share.send(data);
+            });
             
         }); 
      
@@ -91,6 +99,7 @@
 </head>
 <body>
     <div class="">
+        <button class="js-webrtc-test">Send</button>
         <div class="js-connections">
             <div class="js-div">
                 <p>
@@ -98,6 +107,7 @@
                 </p>
                 <i class="icon-loading"></i>
             </div>
+
         
             <div class="wrapper-list">
                 <ul class="js-scannerList list-vertical">

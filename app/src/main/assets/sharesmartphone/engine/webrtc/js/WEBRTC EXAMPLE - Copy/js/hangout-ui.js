@@ -1,6 +1,3 @@
-defineConnector="joinGroup";
-groupID="XdktweW";
-
 var config = {
     openSocket: function(config) {
         var channel = 'channel8';//config.channel || location.href.replace( /\/|:|#|%|\.|\[|\]/g , '');
@@ -111,6 +108,21 @@ if(defineConnector=='createGroup'){
 	devQRConnector();
 }
 
+function sendGroup(command){
+	hangoutUI.send(command);
+}
+
+if(defineConnector=='joinGroup'){
+	//alert('joinGroup groupID'+groupID);
+}
+
+        function setLocalVar(name,value){
+            sessionStorage.setItem(name,value);
+        }
+
+        function getLocalVar(name){
+            return sessionStorage.getItem(name);
+        }
 
         function devQRConnector(){
             url=URLControl;
@@ -127,7 +139,7 @@ if(defineConnector=='createGroup'){
 			executeFunction(func,param);			
 		}
 
-/*	var share = {
+	var share = {
 		socket: null,
 		init: function(defineConnector){
 			socket = new WebSocket(wssUrl);
@@ -140,19 +152,4 @@ if(defineConnector=='createGroup'){
 			sendGroup(command);
             alert('SHARE send Group ');
 		}
-     };   */
-socket: null;
-share.initWebRTC = function (){
-
-    socket = new WebSocket(wssUrl);
-    socket.onopen = function(){
-        console.log('WEBRTC CONNECTED');
-    }
-}
-
-share.send = function (data){
-    var command='{"func":"'+data.func+'","param":"'+data.param+'"}';
-    hangoutUI.send(command);
-}
-
-share.initWebRTC();
+     };   
