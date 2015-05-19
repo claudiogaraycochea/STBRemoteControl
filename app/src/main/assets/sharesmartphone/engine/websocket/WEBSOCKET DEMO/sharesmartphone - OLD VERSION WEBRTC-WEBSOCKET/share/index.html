@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SHARESMARTPHONE</title>
+	<link rel="stylesheet" href="css/sharesmartphone.css">
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/qrcode.min.js"></script>
+	<script>var method="2";</script>
+	<script type="text/javascript" src="js/sharesmartphone.js"></script>
+	<script>
+
+		share.receive = function(func, param){
+			var param=share.getArrayParam(param);
+			share.functionReserved(func, param);
+		}
+
+		var host="http://10.50.15.113/sharesmartphone/";
+		
+		// URLControl is the URL to show in QR code
+		var URLControl=host+"share/control/";
+
+		var QRConnector="devQR"; // "devQR" is the ID to show a DIV of QR code
+		var QRsize=250; // size QRCode
+		var divConsole=""; // Console to show commands at html
+		var divStatus="divStatus"; // Show status (eg: connect, closed, play, stop, etc)
+
+		// ShareSmartphone external function for a new device detected
+		function shareDeviceJoined(){
+			//$('.shareDeviceJoined').html(share.getLocalVar("deviceIDCounter"));
+			share.openURL("http://sharesmartphone.com/sharesmartphone/demo/websiteA/");
+		}
+
+		// ShareSmartphone external function for return a remote control
+		function shareSetRemoteControl(){}
+
+		$(document).ready(function() {
+			var defineConnector='createGroup';
+			share.displayStatus("No connected");
+			share.init(defineConnector);
+		});
+		
+
+	</script>
+</head>
+<body>
+	<h1>Sharesmartphone Synchro</h1>
+    <div class="devQRwrapper">
+		<div id="devQR"></div><br>
+        <input class="devQRURL inp text small" value="">
+    </div>
+	<div class="divStatus share displayNone"></div>
+    <!--<div class="shareDeviceJoined"></div>	-->
+</body>
+</html>

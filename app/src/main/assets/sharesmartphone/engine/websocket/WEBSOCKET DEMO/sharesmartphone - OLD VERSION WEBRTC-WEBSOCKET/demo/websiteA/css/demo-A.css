@@ -1,0 +1,145 @@
+body{
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  line-height: 120%;
+  text-align: center;
+  text-shadow: inset 1px 1px 1px 1px #999999;
+  font-size: 16px;
+}
+
+.background-blue{
+  background: #60bcde;
+  color: #FFFFFF;
+}
+a{
+  text-decoration: none;
+  color: #1FAEFF;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 120%;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 120%;
+  font-weight: bold;
+  color: #8FCFF3;
+  margin: 0 auto;
+}
+
+.divStatus{
+    position:absolute;
+    top:0;
+    left:0;
+    background-color: #000000;
+    font-size: 30px;
+    color: #ffffff;
+	padding: 10px 20px;
+}
+.displayNone{
+    display: none;
+}
+.devQRwrapper {
+    position:absolute;
+    bottom:0;
+    right:0;
+    background-color: #FFFFFF;
+    font-size: 10px;
+    color: #222222;
+	padding: 20px 20px;
+	border: 1px solid #999999;
+}
+
+.btn {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #FFFFFF;
+  /*text-shadow: -1px -1px 0px rgba(0, 0, 0, .1);*/
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; 
+  font-weight: bold;
+}
+.btn:hover{
+  text-decoration: none;
+}
+.btn.small{
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.btn.medium{
+  padding: 5px 10px;
+  font-size: 15px;
+}
+.btn.large{
+  padding: 10px 30px;
+  font-size: 20px;
+}
+.btn.large span{
+  padding-left: 10px;
+  color: #FFFFFF;
+}
+.btn.transparent{
+  background-color: transparent;
+}
+
+.btn.green{
+  background-color: #b4c872;
+  border: 0px solid #8eac4c;
+  color: #fff;
+}
+.btn.blue{
+  background-color: #3091ce;
+  border: 0px solid #3091ce;
+  color: #fff;
+}
+.btn.red{
+  background-color: #e8452d;
+  border: 0px solid #e8452d;
+  color: #fff;
+}
+.btn:disabled {
+  background: #CCCCCC; 
+  color: #979695;
+  text-shadow: -1px -1px 0px rgba(255, 255, 255, .1);
+}
+.btn-top{
+  margin-top: 5px;
+}
+.inp.text {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; 
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  border: 1px solid #000000;
+  background-color: #222222;
+  color: #FFFFFF;
+  width: 100%;
+}
+.inp.text.small{
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.inp.text.medium{
+  padding: 5px 10px;
+  font-size: 15px;
+  width: 200px;
+}
+.inp.text.large{
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 100%;
+}
+.inp.text.width-100{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: 
+  border-box; 
+  max-width: 500px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CONTROL</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" href="../css/demo-A.css">
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://10.50.15.113/sharesmartphone/share/js/sharesmartphone.js"></script>
+    <script>
+        
+        share.receive = function(func, param){
+            var param=share.getArrayParam(param);
+            share.functionReserved(func, param);
+        }
+
+        $(document).ready(function() {
+            
+            share.init('joinGroup');
+
+            $('.js-btn-play').click(function(){
+                var func="play";
+                var param="";//Eg: x=1&y=2
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-stop').click(function(){
+                var func="stop";
+                var param="";
+                share.sendGroup(func,param);
+            });        
+
+            $('.js-btn-url').click(function(){
+                var func="openURL";
+                var param="url="+encodeURI("http://tokelocal.com/sharesmartphone/demo/websiteB/");//Eg: "url" variable to open URL
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-url-c').click(function(){
+                var func="openURL";
+                var param="url="+encodeURI("http://10.50.15.113/sharesmartphone/demo/websiteC/");//Eg: "url" variable to open URL
+                share.sendGroup(func,param);
+            });
+
+        });	
+        
+    </script>
+</head>
+<body class="background-blue">
+	<h1>CONTROL A</h1>
+	<button class="js-btn-play btn large blue">Play</button>
+    <button class="js-btn-stop btn large red">Stop</button>
+    <button class="js-btn-url btn large green">WEBSITE B</button>
+    <button class="js-btn-url-c btn large green">WEBSITE C</button>
+</body>
+</html>

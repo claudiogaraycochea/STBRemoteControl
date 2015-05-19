@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>DISPLAY</title>
+    <link rel="stylesheet" href="css/demo-B.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="http://10.50.15.113/sharesmartphone/share/js/sharesmartphone.js"></script>
+    <script>
+
+        function moveDown(x,y){
+            share.displayStatus('Move Down');
+        }
+        
+        function moveUp(x,y){
+            share.displayStatus('Move Up');
+        }
+
+        function moveLeft(x,y){
+            share.displayStatus('Move Left');
+        }
+
+        function moveRight(x,y){
+            share.displayStatus('Move Right');
+        }
+
+        var divStatus="divStatus"; // Show status (eg: connect, closed, play, stop, etc)
+
+        share.receive = function(func, param){
+            var param=share.getArrayParam(param);
+            switch(func) {
+                case 'moveDown':{
+                    moveDown(param["x"],param["y"]);
+                    break; 
+                }
+                case 'moveUp':{
+                    moveUp(param["x"],param["y"]);
+                    break;            
+                }
+                case 'moveLeft':{
+                    moveLeft(param["x"],param["y"]);
+                    break;            
+                }
+                case 'moveRight':{
+                    moveRight(param["x"],param["y"]);
+                    break;            
+                }
+                default: {
+                    share.functionReserved(func, param);
+                }
+            }
+        }
+
+        $(document).ready(function() {
+            var URLControl='http://tokelocal.com/sharesmartphone/demo/websiteB/control';
+            share.init('joinGroup',URLControl);
+        });
+
+    </script>
+</head>
+<body class="background-red">
+    <h1>WEBSITE B</h1>
+	<div class="divStatus status">Connecting...</div>
+</body>
+</html>

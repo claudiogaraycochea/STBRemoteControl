@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <title>CONTROL</title>
+    <link rel="stylesheet" href="../css/demo-B.css">
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://10.50.15.113/sharesmartphone/share/js/sharesmartphone.js"></script>
+    <script>
+        
+        share.receive = function(func, param){
+            var param=share.getArrayParam(param);
+            share.functionReserved(func, param);
+        }
+
+        $(document).ready(function() {
+            share.init('joinGroup');
+
+            $('.js-btn-moveUp').click(function(){
+                var func="moveUp";
+                var param="";//Eg: x=1&y=2
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-moveDown').click(function(){
+                var myArrayTest= new Array();
+                myArrayTest.push('a');
+                myArrayTest.push('b');
+                myArrayTest.push('c');			
+                var func="moveDown";
+                var param='myArrayTest='+myArrayTest;//Eg: send Array
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-moveLeft').click(function(){
+                var func="moveLeft";
+                var param="";//Eg: x=1&y=2
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-moveRight').click(function(){
+                var func="moveRight";
+                var param="";//Eg: x=1&y=2
+                share.sendGroup(func,param);
+            });
+
+            $('.js-btn-url').click(function(){
+                var groupID=share.getLocalVar("groupID");
+                var deviceID=share.getLocalVar("deviceID");
+                var func="openURL";
+                var param="url="+encodeURI("http://sharesmartphone.com/sharesmartphone/demo/websiteA/");//Eg: "url" variable to open URL
+                share.sendGroup(func,param);
+            });
+            
+        });	
+        
+    </script>
+</head>
+<body class="background-red">
+	<h1>CONTROL B</h1>
+	<button class="js-btn-moveUp btn large blue">Move Up</button>
+    <button class="js-btn-moveDown btn large red">Move Down</button>
+	<button class="js-btn-moveLeft btn large blue">Move Left</button>
+    <button class="js-btn-moveRight btn large red">Move Right</button>
+    <button class="js-btn-url btn large green">WEBSITE A</button>
+</body>
+</html>

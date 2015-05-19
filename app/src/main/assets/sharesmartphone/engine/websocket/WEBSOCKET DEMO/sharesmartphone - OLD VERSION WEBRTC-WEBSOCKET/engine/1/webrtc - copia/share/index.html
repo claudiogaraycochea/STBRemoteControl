@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html id="home" lang="en">
+
+    <head>
+        <title>WebRTC</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		
+		<style>
+		.devQRwrapper {
+			position:absolute;
+			bottom:0;
+			right:0;
+			background-color: #FFFFFF;
+			font-size: 10px;
+			color: #222222;
+			padding: 20px 20px;
+			border: 1px solid #999999;
+		}
+		.hidden {
+			display: none;
+		}
+		.visible {
+			display: none;
+		}
+		
+		</style>
+		
+			<script>
+				function getArrayParam(param){
+					var p= new Array();
+					if(param!=undefined){
+						var ps=param.split("&");
+						$.each(ps, function( key, value ) {
+							var pm=value.split("=");
+							p[pm[0]]=pm[1];
+						});
+						return p;
+					}
+				}
+				
+				function getURLParam(name){
+					if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+					return decodeURIComponent(name[1]);
+				} 
+
+				groupID=getURLParam('groupID');
+				ID=getURLParam('ID');
+				defineConnector=getURLParam('defineConnector');
+				
+				// URLControl is the URL to show in QR code
+				var URLControl="http://sharesmartphone.com/webrtc/?defineConnector=joinGroup&groupID="+groupID;
+				var QRsize=250; // size QRCode
+				var divConsole=""; // Console to show commands at html
+				var divStatus="divStatus"; // Show status (eg: connect, closed, play, stop, etc)
+				
+				function play(x){
+					alert("play"+x);	
+				}
+				function stop(x){
+					alert("stop"+x);	
+				}
+				
+				function executeFunction(func,param){
+						var param=getArrayParam(param);
+						switch(func) {
+							case 'play':{
+								play(param["x"]);
+								break; 
+							}
+							case 'stop':{
+								stop(param["x"]);
+								break;            
+							}
+							default: {
+								alert('no command');
+							}
+						}
+					
+				}
+				
+				$(document).ready(function() {
+					var files = [];
+					$('.js-btn-play').click(function(){
+						var func="play";
+						var param="x=88";//Eg: x=1&y=2
+						var command='{"func":"'+func+'","param":"'+param+'"}';
+						sendGroup(command);
+					});
+	
+					$('.js-btn-stop').click(function(){
+						var func="stop";
+						var param="x=24";//Eg: x=1&y=2
+						var command='{"func":"'+func+'","param":"'+param+'"}';
+						sendGroup(command);
+					});
+					
+					
+					// Get the files selected by the user
+					$('input[type=file]').change(function(event) {
+						files = event.target.files;
+					});
+
+					// Upload the files when user submit the form
+					$('form').submit(function() {
+						// Checks user has selected one or more files
+						if( files.length == 0 ) {
+							alert('select files first !');
+							return false;
+						}
+						for(var i=0; i < files.length; i++) {
+							alert(files[i].size+" - "+files[i].name+" - "+files[i].type+" - "+files[i]);
+						}
+						return false;
+					});
+					
+				});
+			</script>
+		
+    </head>
+    <body>
+		<!--	<div>
+				<table id="rooms-list"></table>
+			</div>				
+		-->
+		<h1>Demo createGroup </h1>
+		<p>
+			http://www.sharesmartphone.com/webrtc/?defineConnector=createGroup&groupID=XdktweW
+		</p>
+		<button class="js-btn-play" >Play</button>
+		<button class="js-btn-stop" >Stop</button>
+			<div>
+			    <input type="text" id="chat-message" value="" disabled>
+                <button id="post-chat-message">Send</button>
+				{"func":"play","param":"x=1"}
+			</div>
+		
+			<div>
+				<table id="chat-output"></table>
+			</div>
+
+		
+		
+			<form action="" type="multipart/form-data">
+				<input type="file" multiple="multiple" />
+				<input type="submit" value="Uploader" />
+			</form>
+					
+			<div id="progresses">
+			</div>		
+		
+		    <div id="devQRwrapper" class="devQRwrapper hidden">
+				<div id="QRDiv">CodigoQR</div>
+				<input id="QRURL" QRURL class="inp text small" value="">
+			</div>
+			<div class="divStatus share displayNone"></div>
+			<div class="shareDeviceJoined"></div>	
+		
+            <script src="js/firebase.js"> </script>
+            <script src="js/RTCPeerConnection-v1.6.js"> </script>
+            <script src="js/hangout.js"> </script>
+            <script src="js/hangout-ui.js"></script>
+
+					
+
+    </body>
+</html>

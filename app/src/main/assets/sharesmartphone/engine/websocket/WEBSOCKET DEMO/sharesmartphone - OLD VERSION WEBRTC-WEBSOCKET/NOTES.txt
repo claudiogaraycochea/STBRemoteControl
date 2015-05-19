@@ -1,0 +1,23 @@
+SHARESMARTPHONE v2
+
+Estructura de ficheros:
+
+sharesmartphone
+	|- DEMO (websiteA en www.sharesmartphone.com y websiteB en www.tokelocal.com)
+	|- ENGINE (motores de conexion en diferentes servers - ej: svr 1 para WEBRTC, svr 2 WEBSOCKET, srv 3 pull, srv N technologies )
+	|- PRELOAD (preloading websites - Set cookies cross domain)
+	|- SHARE (sharesmartphonenizador principal QR)	
+
+- Enrique Velez - Tecnical product manager Satelital- Parte tecnica de product manager.
+- Francisco - Tecnical product manager ott
+
+no tiene que conectar al server, o por lo menos evitarlo
+
+Mag 250 - tiene API
+STB Remote Control - https://play.google.com/store/apps/details?id=com.sunplus.remote
+STB Remote Control -  - https://play.google.com/store/apps/details?id=com.stb.STBRemoteControid
+STB Remote Control - Device MAG 250 - https://play.google.com/store/apps/details?id=org.humansoftware.irremotemag250trial
+sharesmartphone - proyecto mio lo sustento yo.
+
+
+

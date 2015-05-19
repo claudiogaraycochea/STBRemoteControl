@@ -61,7 +61,7 @@ var share = {
     },
 
     getEngineWebrtc: function(data){
-    	this.consoleLog('Generando conexión con Webrtc...');
+        this.openJS(hostBase+'sharesmartphone/engine/webrtc/js/webrtc.js');
     },
 
     /* Mostrar consola */

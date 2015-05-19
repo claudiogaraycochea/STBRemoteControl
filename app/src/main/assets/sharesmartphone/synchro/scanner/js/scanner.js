@@ -25,13 +25,19 @@ share.getScannerLocalVar = function(){
 		model: 'onvideo-1'
 	};
 
-	var ordenadorTest = {
-		engineTitle: 'Ordenador',
+	var ordenadorWebsocket = {
+		engineTitle: 'Ordenador Websocket',
 		engine: 'websocket',
 		wsHost: '192.168.1.33'
 	};
 
-	var scannerLocalVar='['+JSON.stringify(STBTelefonicaTest)+','+JSON.stringify(STBOnvideoTest)+','+JSON.stringify(ordenadorTest)+']';
+	var ordenadorWebRTC = {
+		engineTitle: 'Ordenador WebRTC',
+		engine: 'webrtc',
+		wsHost: '192.168.1.33'
+	};
+
+	var scannerLocalVar='['+JSON.stringify(STBTelefonicaTest)+','+JSON.stringify(STBOnvideoTest)+','+JSON.stringify(ordenadorWebsocket)+','+JSON.stringify(ordenadorWebRTC)+']';
 	
 	/* todos los dispositivos encontrados se almacenan en la cookie */
 	share.setLocalVar('scannerList',scannerLocalVar);

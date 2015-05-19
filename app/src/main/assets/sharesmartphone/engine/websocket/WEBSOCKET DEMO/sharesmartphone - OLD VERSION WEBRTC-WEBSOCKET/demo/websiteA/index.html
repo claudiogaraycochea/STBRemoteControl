@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>DISPLAY</title>
+    <link rel="stylesheet" href="css/demo-A.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://10.50.15.113/sharesmartphone/share/js/sharesmartphone.js"></script>
+    <script>
+
+        var divStatus="divStatus";
+        
+        function play(x,y){
+            share.displayStatus('Play');
+        }
+
+        function stop(x,y){
+            share.displayStatus('Stop');
+        }
+   
+        share.receive = function(func, param){
+            var param=share.getArrayParam(param);
+            switch(func) {
+                case 'play':{
+                    play(param["x"],param["y"]);
+                    break; 
+                }
+                case 'stop':{
+                    stop(param["x"],param["y"]);
+                    break;            
+                }
+                default: {
+                    share.functionReserved(func, param);
+                }
+            }
+        }
+    
+        $(document).ready(function() {
+            var URLControl='http://sharesmartphone.com/sharesmartphone/demo/websiteA/control';
+            share.init('joinGroup',URLControl);
+        });
+
+    </script>
+</head>
+<body class="background-blue">
+    <h1>WEBSITE A</h1>
+	<div class="divStatus status"></div>
+</body>
+</html>
