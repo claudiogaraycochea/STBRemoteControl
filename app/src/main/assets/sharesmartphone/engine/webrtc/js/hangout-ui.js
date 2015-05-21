@@ -1,9 +1,13 @@
-defineConnector="joinGroup";
-groupID="XdktweW";
+var data = JSON.parse(share.getLocalVar('engineSelected'));
+var defineConnection=data.defineConnection;
+var groupID="XdktweW";
+var wssUrl="";
 
 var config = {
     openSocket: function(config) {
         var channel = 'channel8';//config.channel || location.href.replace( /\/|:|#|%|\.|\[|\]/g , '');
+            
+        //var socket = new Firebase('https://trip-chronicle.firebaseio.com/' + channel);
         var socket = new Firebase('https://webrtc-signaling.firebaseio.com/' + channel);
 
         socket.channel = channel;
@@ -26,33 +30,22 @@ var config = {
                 joinUser: room.broadcaster,
                 userName: 'guest'
             });
-            hideUnnecessaryStuff();
 		}
     },
     onChannelOpened: function(/* channel */) {
-		//document.getElementById('devQRwrapper').style.display="none";
-        hideUnnecessaryStuff();
+        share.consoleLog('Engine WEBRTC conectado');
     },
     onChannelMessage: function(data) {
         if (!chatOutput) return;
-
-        /*var tr = document.createElement('tr');
-        tr.innerHTML =
-            '<td style="width:40%;">' + data.sender + '</td>' +
-                '<td>' + data.message + '</td>';
-
-        chatOutput.insertBefore(tr, chatOutput.firstChild);*/
-		
-		processCommand(data.message);
+        share.receive(JSON.parse(data.message));
     }
 };
 
 function createGroup(groupID){
     hangoutUI.createRoom({
-        userName: '1',//prompt('Enter your name', 'Anonymous'),
-        roomName: groupID // (document.getElementById('conference-name') || { }).value || 'Anonymous'
+        userName: '1',
+        roomName: groupID
     });
-    hideUnnecessaryStuff();
 }
 
 
@@ -66,32 +59,10 @@ var roomsList = document.getElementById('rooms-list');
 
 var chatOutput = document.getElementById('chat-output');
 
-function hideUnnecessaryStuff() {
-    var visibleElements = document.getElementsByClassName('visible'),
-        length = visibleElements.length;
-
-    for (var i = 0; i < length; i++) {
-        visibleElements[i].style.display = 'none';
-    }
-
-    var chatTable = document.getElementById('chat-table');
-    if (chatTable) chatTable.style.display = 'block';
-    if (chatOutput) chatOutput.style.display = 'block';
-    if (chatMessage) chatMessage.disabled = false;
-}
-
 var chatMessage = document.getElementById('chat-message');
 if (chatMessage)
     chatMessage.onchange = function() {
         hangoutUI.send(this.value);
-        /*var tr = document.createElement('tr');
-       
-		tr.innerHTML =
-            '<td style="width:40%;">You:</td>' +
-                '<td>' + chatMessage.value + '</td>';
-
-        chatOutput.insertBefore(tr, chatOutput.firstChild);
-        chatMessage.value = '';*/
     };
 
 
@@ -102,47 +73,9 @@ if (chatMessage)
         else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace( /\./g , '-');
 })();
 
-
-
-if(defineConnector=='createGroup'){
-	//alert('createGroup groupID'+groupID);
-//	document.getElementById('devQRwrapper').style.display="block";
-	createGroup(groupID);
-	devQRConnector();
-}
-
-
-        function devQRConnector(){
-            url=URLControl;
-			document.getElementById('QRURL').value=url;
-            new QRCode(document.getElementById('QRDiv'), url);
-        }
-
-		function processCommand(command){
-			var data = JSON.parse(command); 
-			var to=data.to;
-            var from=data.from;
-			var func=data.func;
-			var param=data.param;	
-			executeFunction(func,param);			
-		}
-
-/*	var share = {
-		socket: null,
-		init: function(defineConnector){
-			socket = new WebSocket(wssUrl);
-			socket.onopen = function(){
-                console.log('WEBRTC CONNECTED');
-            }
-        },
-        sendGroup: function(func,param){
-			var command='{"func":"'+func+'","param":"'+param+'"}';
-			sendGroup(command);
-            alert('SHARE send Group ');
-		}
-     };   */
 socket: null;
-share.initWebRTC = function (){
+
+share.initWebRTC = function (wssUrl){
 
     socket = new WebSocket(wssUrl);
     socket.onopen = function(){
@@ -155,4 +88,15 @@ share.send = function (data){
     hangoutUI.send(command);
 }
 
-share.initWebRTC();
+if(defineConnection == 'createGroup'){
+    share.consoleLog('Inicializando modo createGroup');
+    groupID="XdktweW";
+    createGroup(groupID);
+}
+else
+if(defineConnection == 'joinGroup'){
+    share.consoleLog('Inicializando modo joinGroup');
+    groupID="XdktweW";
+}
+
+share.initWebRTC(wssUrl);

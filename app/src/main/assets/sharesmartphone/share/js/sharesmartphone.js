@@ -22,10 +22,17 @@ var share = {
         }    
     },
 
-    /* Unir al grupo */
+    /* Crear grupo */
     createGroup: function(data){
    		this.consoleLog('Iniciando modo createGroup...');
-   		this.setLocalVarObj(data);
+        var engineArray=data.engineOrder.split(",");
+        var data = {
+            "defineConnection": data.defineConnection,
+            "engineTitle": data.engineTitle,
+            "engine": engineArray[0],
+            "tag": data.tag,
+        }
+        this.connectEngine(data);
    	},
 
     /* Unir al grupo */
@@ -52,14 +59,17 @@ var share = {
 
     },
     
+    /* llama a motor de STB */
     getEngineSTB: function(data){
         this.openJS(hostBase+'sharesmartphone/engine/stb/js/stb.js');
     },
 
+    /* llama a motoro websocket */
     getEngineWebsocket: function(data){
     	this.consoleLog('Generando conexión con Websocket...');
     },
 
+    /* llama a motor webrtc*/
     getEngineWebrtc: function(data){
         this.openJS(hostBase+'sharesmartphone/engine/webrtc/js/webrtc.js');
     },
@@ -70,6 +80,7 @@ var share = {
     	console.log(dataString);
     },
 
+    /* Incluye ficheros js en html */
     openJS: function(url){
         var script = document.createElement('script');
         script.src = url+'?'+Math.random();
@@ -109,7 +120,6 @@ var share = {
     },
 
     connectEngine: function(data){
-        
         switch(data.engine) {
             case 'stb':{
                 this.setLocalVar('engineSelected',JSON.stringify(data));
@@ -158,6 +168,17 @@ var share = {
         $(location).attr('href', url);
     },
 
+    delay : function(ms) {
+        var cur_d = new Date();
+        var cur_ticks = cur_d.getTime();
+        var ms_passed = 0;
+        while(ms_passed < ms) {
+            var d = new Date();  // Possible memory leak?
+            var ticks = d.getTime();
+            ms_passed = ticks - cur_ticks;
+            // d = null;  // Prevent memory leak?
+        }
+    }
 
 }
 

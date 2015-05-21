@@ -17,4 +17,3 @@ share.initSTB = function(){
 }
 
 share.initSTB();
-//alert('ddd');

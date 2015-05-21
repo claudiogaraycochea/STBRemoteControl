@@ -34,7 +34,9 @@ share.getScannerLocalVar = function(){
 	var ordenadorWebRTC = {
 		engineTitle: 'Ordenador WebRTC',
 		engine: 'webrtc',
-		wsHost: '192.168.1.33'
+		webrtcHost: '192.168.1.33',
+		defineConnection: 'joinGroup',
+		groupID: 'XdktweW'
 	};
 
 	var scannerLocalVar='['+JSON.stringify(STBTelefonicaTest)+','+JSON.stringify(STBOnvideoTest)+','+JSON.stringify(ordenadorWebsocket)+','+JSON.stringify(ordenadorWebRTC)+']';
