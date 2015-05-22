@@ -1,6 +1,7 @@
 var data = JSON.parse(share.getLocalVar('engineSelected'));
 var defineConnection=data.defineConnection;
-var groupID="XdktweW";
+var groupID=data.groupID;
+//var groupID="XdktweW";
 var wssUrl="";
 
 var config = {
@@ -31,6 +32,10 @@ var config = {
 		}
     },
     onChannelOpened: function(/* channel */) {
+        var data = {
+            func: 'ready'
+        };
+        share.send(data);
         share.consoleLog('Engine WEBRTC conectado');
     },
     onChannelMessage: function(data) {
@@ -57,8 +62,8 @@ share.initWebRTC = function (wssUrl){
 }
 
 share.send = function (data){
-    var command='{"func":"'+data.func+'","param":"'+data.param+'"}';
-    hangoutUI.send(command);
+    var data='{"func":"'+data.func+'","param":"'+data.param+'"}';
+    hangoutUI.send(data);
 }
 
 if(defineConnection == 'createGroup'){
@@ -69,7 +74,6 @@ if(defineConnection == 'createGroup'){
 else
     if(defineConnection == 'joinGroup'){
         share.consoleLog('Inicializando modo joinGroup');
-        groupID="XdktweW";
     }
 
 share.initWebRTC(wssUrl);

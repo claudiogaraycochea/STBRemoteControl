@@ -12,8 +12,8 @@
     <script type="text/javascript" src="../../../sharesmartphone/share/js/sharesmartphone.js"></script>
     <script>
 
-        function openWebsiteB(){
-            $(location).attr('href', '../websiteB/index.html');
+        function openWebsiteA(){
+            $(location).attr('href', '../websiteA/index.html');
         }
 
         /* Abre un componente */
@@ -21,8 +21,8 @@
             var p = share.paramToArray(param);
             share.consoleLog('openComponent '+p.componentName+' > url:'+p.url);
             switch(p.componentName) {
-                case 'websiteB':{
-                    openWebsiteB();
+                case 'websiteA':{
+                    openWebsiteA();
                     break;
                 }
                 default:
@@ -30,10 +30,11 @@
             }
         }
 
+
         share.ready = function(data){
             var data = {
                 func: 'openComponent',
-                param: 'componentName=controlA'
+                param: 'componentName=controlB'
             };
             share.send(data);
         }
